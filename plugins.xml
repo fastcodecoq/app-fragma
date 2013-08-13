@@ -1,1 +1,36 @@
-<plugin name="Accelerometer" value="org.apache.cordova.accelerometer.Accelerometer" />
+	
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.adobe.plugins.PushPlugin"
+    version="1.3.3">
+	
+	<plugin name="Accelerometer" value="org.apache.cordova.accelerometer.Accelerometer" />
+	<plugin name="Accelerometer" value="org.apache.cordova.AccelListener" />
+	<plugin name="File" value="org.apache.cordova.FileUtils" />
+	<plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />    
+	<plugin name="Accelerometer" value="org.apache.cordova.AccelListener" />
+	<plugin name="Accelerometer" value="CDVAccelerometer" />
+
+
+	<config-file target="AndroidManifest.xml" parent="/manifest">
+
+		<uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.VIBRATE" />
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+        <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.RECEIVE_SMS" />
+        <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+        <uses-permission android:name="android.permission.READ_CONTACTS" />
+        <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+  	 </config-file>
+
+
+</plugin>
