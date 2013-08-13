@@ -2,13 +2,14 @@ document.addEventListener("deviceready",onDeviceReady,false);
 
 function onDeviceReady() {
 
-          pictureSource=navigator.camera.PictureSourceType;
-          destinationType=navigator.camera.DestinationType;        
+          var pictureSource=navigator.camera.PictureSourceType;
+          var destinationType=navigator.camera.DestinationType;        
                 
           
          try{
           
              window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
+
            
            }
            catch(e)
@@ -17,9 +18,22 @@ function onDeviceReady() {
             alert("error obteniendo sistema de archivos local");
 
            }
+
+
+           try{
+
+                 navigator.accelerometer.getCurrentAcceleration(fil_ok, null);
+
+           }
+           catch(e){
+
+               alert("No hay aceletometro");
+
+           }
            
 
          ini_pgap();
+         alert(pictureSource)
 
         
         }
