@@ -197,11 +197,16 @@ function onDeviceReady() {
           destinationType=navigator.camera.DestinationType;        
           
 
+         function fil_ok(){
+
+             console.log("ok")
+
+          }
+
           
          try{
-             
-             ini();
-             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, ini, null);
+          
+             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
            
            }
            catch(e)
@@ -225,12 +230,7 @@ function onDeviceReady() {
 
 function ini(){
 
-      alert("hola")
-
-         var con = new controller;
-         con.ini();
-
-   
+      alert("hola");
 
 }
 
