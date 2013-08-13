@@ -8,7 +8,7 @@ function onDeviceReady() {
           
          try{
           
-             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
+             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok("File"), null);
 
            
            }
@@ -22,7 +22,7 @@ function onDeviceReady() {
 
            try{
 
-                 navigator.accelerometer.getCurrentAcceleration(fil_ok, null);
+                 navigator.accelerometer.getCurrentAcceleration(fil_ok("Acelerometro"), null);
 
            }
            catch(e){
@@ -32,9 +32,8 @@ function onDeviceReady() {
            }
            
 
-         ini_pgap();
-         alert(pictureSource)
-
+         ini_pgap();      
+         alert(typeof (pictureSource))
         
         }
 
@@ -62,8 +61,8 @@ function shake(){
 
 
 
-function fil_ok(){
+function fil_ok( what ){
 
-             console.log("ok")
+             console.log("ok "+ what)
 
  }
