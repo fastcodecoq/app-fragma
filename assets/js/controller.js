@@ -217,7 +217,7 @@ function onDeviceReady() {
            }
            
 
-         
+         ini();
 
         
         }
