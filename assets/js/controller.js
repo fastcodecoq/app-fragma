@@ -80,7 +80,9 @@ function controller(){
 
   $t.render_menu = function( vars , callback){
 
-  		var w = $(window).width();
+      $("#menu li").css({marginLeft : "1px"});      
+  		 
+       var w = $(window).width();
 
 
   		 wref = { w : 474 , val : 2.3 };
