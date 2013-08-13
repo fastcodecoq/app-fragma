@@ -211,10 +211,7 @@ function onDeviceReady() {
            }
            
 
-           var con = new controller;
-               con.ini();
-
-               ini();
+         
 
         
         }
@@ -229,7 +226,10 @@ function ini(){
 
       alert("hola")
 
-     shake.startWatch(shake);
+        var con = new controller;
+         con.ini();
+
+   
 
 }
 
