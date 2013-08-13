@@ -16,7 +16,7 @@ function controller(){
                  left = uLeft + left; 
 
             if(parseInt(li.attr("id")) != 0)
-            li.parents("ul:first").css({ marginLeft : left + "px"});            
+            li.parents("ul:first").animate({ marginLeft : left + "px"}, 40);            
 
 
        }
@@ -30,7 +30,7 @@ function controller(){
                  left = uLeft - left; 
            
             if(parseInt(li.attr("id")) != (li.parents("ul:first").find("li").length - 1 ))
-            li.parents("ul:first").css({ marginLeft : left + "px"});            
+            li.parents("ul:first").animate({ marginLeft : left + "px"}, 40);            
 
        }
 
@@ -72,6 +72,12 @@ function controller(){
                      swipeUp : function(e){ e.preventDefault(); },
                      swipeDown : function(e){ e.preventDefault(); }
                       });
+
+          $(".fixed-bottom").swipe({  
+                     swipeUp : function(e){ e.preventDefault(); alert("hey"); $(this).addClass("color"); },
+                     swipeDown : function(e){ e.preventDefault(); $(this).removeClass("color"); }
+                      });
+      
       
 
   }
@@ -183,23 +189,6 @@ function controller(){
   	  $t.ini_render();
 
   	  console.log("Controller iniciado");
-
-      $.ajax({
-
-          url  : "test.php",
-          type : "GET", 
-          success : function(rs){
-
-              alert(rs)
-
-          },
-          error : function(err){
-
-              alert(err.responseText)
-
-          }
-
-      });
 
 
     }
