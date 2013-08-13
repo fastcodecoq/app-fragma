@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns       = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id      = "com.apmontelibano.censo"
+    version     = "2.2">
+
+    <name>Fragma Club</name>
+
+    <description>
+    Captura y comparte al instante tus mejores momentos Fragma con toda la comunidad del club, Facebook o Twitter.
+
+    Enterate de todos los eventos del club, e incluso indicale a la aplicación que te recuerde uno de ellos.
+    </description>
+
+    <author href="http://gomosoft.pro"
+        email="info@gomosoft.com">
+        Gomosöft
+    </author>
+
+    <gap:platforms>
+        <gap:platform name="android" minVersion="4.0" />
+        <gap:platform name="blackberry" project="widgets"/>
+        <gap:platform name="blackberry" project="widgets"/>
+    </gap:platforms>
+
+    <icon src="appicon.png" gap:role="default" />
+    <icon src="icon_72.png" width="96" height="96" />
+    <icon src="icon_72.png" width="72" height="72" />
+    <icon src="icon_48.png" width="48" height="48" />
+    <icon src="icon_36.png" width="36" height="36" />
+
+    <gap:splash src="appcapture.png" />
+
+    <plugin name="File" value="org.apache.cordova.FileUtils" />
+    <plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />    
+
+
+<feature name="http://api.phonegap.com/1.0/camera"/>
+<feature name="http://api.phonegap.com/1.0/network"/>
+<feature name="http://api.phonegap.com/1.0/notification"/>
+<feature name="http://api.phonegap.com/1.0/media"/>
+<feature name="http://api.phonegap.com/1.0/file"/>
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+<feature id="blackberry.widgetcache" required="true" version="1.0.0.0" />
+
+<preference name="target-device" value="universal" />
+
+
+</widget>
