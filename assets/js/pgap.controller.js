@@ -3,21 +3,13 @@ document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady() {
 
           pictureSource=navigator.camera.PictureSourceType;
-          destinationType=navigator.camera.DestinationType;
-
-          function fil_ok(){
-
-             alert("ok")
-
-          }
-
-
-          ini();
+          destinationType=navigator.camera.DestinationType;        
+          
 
           
          try{
           
-             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
+             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, ini, null);
            
            }
            catch(e)
@@ -28,7 +20,9 @@ function onDeviceReady() {
            }
            
 
+        
         }
+
 
 
 //-------------- iniciado 
@@ -36,6 +30,8 @@ function onDeviceReady() {
 
 
 function ini(){
+
+  alert("hola")
 
      shake.startWatch(shake);
 
