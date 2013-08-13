@@ -19,6 +19,8 @@
  <script src="assets/js/swipe.min.js"></script>
  <script src="assets/js/phpjs.js"></script>
  <script src="assets/js/controller.js"></script>
+ <script src="assets/js/shake.js"></script>
+ <script src="assets/js/pgap.controller.js"></script>
  
  <script>
   less = {
@@ -113,40 +115,6 @@
 
 
 
- 	 			
-          <?php if(isset($_GET["dark"])){ ?>
-    <footer class="fixed-bottom">
-      <div class="navbar" >
-        <ul class="nav navbar-nav" id="menu">
- 	 				<li class="nav"><a href="#" rel="norel">
- 	 					<figure class="sprite-white sprite-home"> 
- 	 					&nbsp;	 						
- 	 					</figure>
- 	 				</a></li>
- 	 				<li class="nav"><a href="#" rel="norel">
- 	 					<figure class="sprite-white sprite-geo"> 
- 	 					&nbsp;	 						
- 	 					</figure>
- 	 				</a></li>
- 	 				<li class="nav"><a href="#" rel="norel">
- 	 					<figure class="sprite-white sprite-cam"> 
- 	 					&nbsp;	 						
- 	 					</figure>
- 	 				</a></li>
- 	 				<li class="nav"><a href="#" rel="norel">
- 	 					<figure class="sprite-white sprite-list"> 
- 	 					&nbsp;	 						
- 	 					</figure>
- 	 				</a></li>
- 	 				<li class="nav"><a href="#" rel="norel">
- 	 					<figure class="sprite-white sprite-inf"> 
- 	 					&nbsp;	 						
- 	 					</figure>
- 	 				</a></li>
-         </ul>
-      </div>
-   </footer>   
-        <?php }else{ ?>
       <footer class="fixed-bottom color">
        <div class="navbar" >
         <ul class="nav navbar-nav" id="menu">        
@@ -176,9 +144,11 @@
             </figure>
           </a></li>
          </ul> 
+
+
       </div>
    </footer>    
-          <?php } ?>
+         
 
 
  	 		

@@ -7,9 +7,12 @@ function onDeviceReady() {
 
           function fil_ok(){
 
-             console.log("ok")
+             alert("ok")
 
           }
+
+
+          ini();
 
           
          try{
@@ -29,3 +32,19 @@ function onDeviceReady() {
 
 
 //-------------- iniciado 
+
+
+
+function ini(){
+
+     shake.startWatch(shake);
+
+}
+
+
+
+function shake(){
+
+  alert("you shake me");
+
+}
