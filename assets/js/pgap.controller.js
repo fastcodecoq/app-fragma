@@ -27,7 +27,7 @@ function onDeviceReady() {
            }
            catch(e){
 
-               alert("No hay aceletometro");
+               alert("Dispositivo sin Acelerometro, no se podrá detectar shake");
 
            }
            
@@ -43,8 +43,6 @@ function onDeviceReady() {
 
 
 function ini_pgap(){
-
-    alert("phonegap listo");
 
     shake.startWatch(shake);
 

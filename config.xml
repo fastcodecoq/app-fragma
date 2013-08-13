@@ -47,6 +47,6 @@
 <feature id="org.apache.cordova" required="true" version="1.0.0" />
 
 <preference name="target-device" value="universal" />
-
+<preference name="show-splash-screen-spinner" value="false" />
 
 </widget>

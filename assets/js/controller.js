@@ -86,7 +86,7 @@ function controller(){
 
   $t.render_menu = function( vars , callback){
 
-      $("#menu li").css({marginLeft : "1px"});      
+      $("#menu li").hide();      
   		 
        var w = $(window).width();
 
@@ -123,8 +123,14 @@ function controller(){
 
       if(callback instanceof Function)
         callback(w);
-      else
-  		$("#menu li").css({marginLeft : w + "em"});
+      else{
+  		
+      $("#menu li").css({marginLeft : w + "em"});
+      $("#menu li").show();
+
+       }
+
+
 
   }
 
