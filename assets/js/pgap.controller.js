@@ -4,12 +4,11 @@ function onDeviceReady() {
 
           pictureSource=navigator.camera.PictureSourceType;
           destinationType=navigator.camera.DestinationType;        
-          
-
+                
           
          try{
           
-             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, ini, null);
+             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
            
            }
            catch(e)
@@ -20,7 +19,7 @@ function onDeviceReady() {
            }
            
 
-           ini();
+         ini_pgap();
 
         
         }
@@ -30,12 +29,11 @@ function onDeviceReady() {
 //-------------- iniciado 
 
 
+function ini_pgap(){
 
-function ini(){
+    alert("phonegap listo");
 
-  alert("hola")
-
-     shake.startWatch(shake);
+    shake.startWatch(shake);
 
 }
 
@@ -46,3 +44,12 @@ function shake(){
   alert("you shake me");
 
 }
+
+
+
+
+function fil_ok(){
+
+             console.log("ok")
+
+ }

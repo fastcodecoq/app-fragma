@@ -41,7 +41,9 @@ function controller(){
 
   	  var i = 0;
   	  var h = $(window).height();  	  
-  	      h = h - ($(".fixed-bottom").height() + $("header").height() ) ;  
+      var bars = $(".fixed-bottom").height() + $("header").height();
+
+  	      h = h - bars ;  
 
           $(".events").css({"-webkit-transition" : "all .5s", "transition" : "all .5s"})	       
 
@@ -183,64 +185,13 @@ function controller(){
   }
 
 
-
-
 }
 
 
-
-document.addEventListener("deviceready",onDeviceReady,false);
-
-function onDeviceReady() {
-
-          pictureSource=navigator.camera.PictureSourceType;
-          destinationType=navigator.camera.DestinationType;        
-                
-          
-         try{
-          
-             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fil_ok, null);
-           
-           }
-           catch(e)
-           {
-
-            alert("error obteniendo sistema de archivos local");
-
-           }
-           
-
-         ini_pgap();
-
-        
-        }
-
-
-
-//-------------- iniciado 
-
-
-
-function ini_pgap(){
-
-    alert("phonegap listo");
-
-}
 
 var con = new controller();
           $(con.ini);
 
 
 
-function shake(){
 
-  alert("you shake me");
-
-}
-
-
-function fil_ok(){
-
-             console.log("ok")
-
- }
