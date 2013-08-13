@@ -40,6 +40,27 @@
 
  less.watch();
 
+ 
+  function test(){
+
+     $.ajax({
+
+       url : "test.php",
+       success : function(rs){
+
+            alert(rs);
+
+       },
+       error : function(err){
+ 
+          alert(err.responseText);
+
+       }
+
+     })
+
+  }
+
 
  //var inte = setInterval(function(){
 
