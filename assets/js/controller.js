@@ -16,7 +16,7 @@ function controller(){
                  left = uLeft + left; 
 
             if(parseInt(li.attr("id")) != 0)
-            li.parents("ul:first").animate({ marginLeft : left + "px"}, 40);            
+            li.parents("ul:first").css({ marginLeft : left + "px"});            
 
 
        }
@@ -30,7 +30,7 @@ function controller(){
                  left = uLeft - left; 
            
             if(parseInt(li.attr("id")) != (li.parents("ul:first").find("li").length - 1 ))
-            li.parents("ul:first").animate({ marginLeft : left + "px"}, 40);            
+            li.parents("ul:first").css({ marginLeft : left + "px"});            
 
        }
 
