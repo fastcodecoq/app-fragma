@@ -195,14 +195,7 @@ function onDeviceReady() {
 
           pictureSource=navigator.camera.PictureSourceType;
           destinationType=navigator.camera.DestinationType;        
-          
-
-         function fil_ok(){
-
-             console.log("ok")
-
-          }
-
+                
           
          try{
           
@@ -217,7 +210,7 @@ function onDeviceReady() {
            }
            
 
-         ini();
+         ini_pgap();
 
         
         }
@@ -228,11 +221,14 @@ function onDeviceReady() {
 
 
 
-function ini(){
+function ini_pgap(){
 
-      alert("hola");
+    alert("phonegap listo");
 
 }
+
+var con = new controller();
+          $(con.ini);
 
 
 
@@ -241,3 +237,10 @@ function shake(){
   alert("you shake me");
 
 }
+
+
+function fil_ok(){
+
+             console.log("ok")
+
+ }
