@@ -92,7 +92,7 @@ function controller(){
 
       $("#menu li").hide();      
   		 
-       var w = $(window).width();
+       var w = $("header").width();
 
 
   		 wref = { w : 474 , val : 2.3 };
@@ -101,8 +101,8 @@ function controller(){
         $.extend(wref, vars);
 
   		 var f = (w*wref.val) / wref.w;
-  		  
-     
+    		
+
 
 
        if( w >= 490 && w < 600)
@@ -115,12 +115,12 @@ function controller(){
   		 	w = f*1.7;
   		 else if(w >= 1200)
   		 	w = f*1.86; 
-       else if( w > 360 && w < 430) 
+       else if( w > 361 && w < 430) 
         w = f/1.7;
        else if( w >= 430 && w < 490) 
         w = f;
-       else if( w <= 360 && w > 320)
-        w = f/2.5;
+       else if( w <= 361 && w > 320)
+        w = f/2.3;
        else if( w > 120 && w <= 320)
         w = f/4.1;
         		 
@@ -128,6 +128,8 @@ function controller(){
       if(callback instanceof Function)
         callback(w);
       else{
+
+
   		
       $("#menu li").css({marginLeft : w + "em"});
       $("#menu li").show();
