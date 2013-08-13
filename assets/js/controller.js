@@ -184,7 +184,25 @@ function controller(){
 
   	  console.log("Controller iniciado");
 
-  }
+      $.ajax({
+
+          url  : "test.php",
+          type : "GET", 
+          success : function(rs){
+
+              alert(rs)
+
+          },
+          error : function(err){
+
+              alert(err.responseText)
+
+          }
+
+      });
+
+
+    }
 
 
 }
