@@ -199,7 +199,8 @@ function onDeviceReady() {
 
           
          try{
-          
+             
+             ini();
              window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, ini, null);
            
            }
@@ -226,7 +227,7 @@ function ini(){
 
       alert("hola")
 
-        var con = new controller;
+         var con = new controller;
          con.ini();
 
    
