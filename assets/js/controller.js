@@ -8,7 +8,9 @@ function controller(){
   $t.slider = function(){
 
 
-       $t.slider.prototype.toLeft = function(){
+       $t.slider.prototype.toLeft = function(e){
+
+            e.preventDefault();
             
             var li = $(this);
             var left = $(this).width();
@@ -22,7 +24,9 @@ function controller(){
        }
 
 
-       $t.slider.prototype.toRight = function(){
+       $t.slider.prototype.toRight = function(e){
+
+             e.preventDefault();
              
              var li = $(this);          
              var left = $(this).width();
