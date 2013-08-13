@@ -1,3 +1,5 @@
+var width_land = undefined;
+var width_portrait = undefined;
 
 function controller(){
 
@@ -44,10 +46,9 @@ function controller(){
   $t.render_sliders = function(){
 
   	  var i = 0;
-  	  var h = $(window).height();  	  
-      var bars = $(".fixed-bottom").height() + $("header").height();
+  	  var h = $(window).height();  	        
 
-  	      h = h - bars ;  
+  	      h = h - ($(".fixed-bottom").height() + $("header").height());  
 
           $(".events").css({"-webkit-transition" : "all .5s", "transition" : "all .5s"})	       
 
@@ -89,8 +90,7 @@ function controller(){
 
 
   $t.render_menu = function( vars , callback){
-
-      $("#menu li").hide();      
+    
   		 
        var w = $("header").width();
 
@@ -105,7 +105,7 @@ function controller(){
 
 
 
-       if( w >= 490 && w < 600)
+       if( w > 490 && w < 600)
         w = f*1.1;
        else if( w >= 600 && w <768)
         w = f*1.2;        
@@ -115,14 +115,14 @@ function controller(){
   		 	w = f*1.7;
   		 else if(w >= 1200)
   		 	w = f*1.86; 
-       else if( w > 361 && w < 430) 
+       else if( w > 366 && w < 430) 
         w = f/1.7;
-       else if( w >= 430 && w < 490) 
-        w = f;
-       else if( w <= 361 && w > 320)
-        w = f/2.3;
+       else if( w >= 430 && w <= 490) 
+        w = f*.9;
+       else if( w <= 366 && w > 320)
+        w = f/4.3;
        else if( w > 120 && w <= 320)
-        w = f/4.1;
+        w = f/4.8;
         		 
 
       if(callback instanceof Function)
@@ -144,13 +144,19 @@ function controller(){
   $t.live_render = function(){
 
 
-  		$(window).on("resize", function(){
 
-  		  	$t.render_sliders();
- 	        $t.render_menu();
- 	        $t.render_events();
+  		$(window).on("resize", function(e){
 
-  		
+          e.preventDefault();
+          e.stopPropagation();
+
+
+          $("#menu li").css({marginLeft : 0 });
+
+
+          $t.render_sliders();
+          $t.render_menu();
+          $t.render_events();	    
 
   		});
 
