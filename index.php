@@ -19,6 +19,9 @@
  <script src="assets/js/swipe.min.js"></script>
  <script src="assets/js/phpjs.js"></script>
  <script src="assets/js/controller.js"></script>
+ <script src="assets/js/shake.js"></script>
+ <script src="assets/js/pgap.controller.js"></script>
+
  
  <script>
   less = {
