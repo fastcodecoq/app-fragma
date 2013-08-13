@@ -1,0 +1,15 @@
+Options -Indexes
+
+
+Options +FollowSymLinks
+Options -Indexes
+
+RewriteEngine On
+
+
+RewriteCond %{SCRIPT_FILENAME} !-d  
+RewriteCond %{SCRIPT_FILENAME} !-f  
+
+RewriteRule ^assets ./app
+RewriteRule ^dark ./index.php?dark
+RewriteRule ^light ./index.php
