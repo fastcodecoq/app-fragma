@@ -115,12 +115,14 @@ function controller(){
   		 	w = f*1.7;
   		 else if(w >= 1200)
   		 	w = f*1.86; 
-       else if( w > 366 && w < 430) 
+       else if( w >= 366 && w < 430) 
         w = f/1.7;
        else if( w >= 430 && w <= 490) 
         w = f*.9;
-       else if( w <= 366 && w > 320)
+       else if( w > 320 && w < 360)
         w = f/4.3;
+      else if( w >= 360 && w < 366)
+        w = f/2.4;
        else if( w > 120 && w <= 320)
         w = f/4.8;
         		 
