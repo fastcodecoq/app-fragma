@@ -66,19 +66,19 @@
            require("assets/js/pgap.controller.js");
            require("assets/js/controller.js");           
 
-              var data = {};
+         
 
 
-           if(!window.localStorage.credentials){
-        
+           if(window.localStorage.credentials){
+          
+           var data = {};
 
            var view = new EJS({url:"views/home.ejs"})
                    .render(data);
 
            data.view = view;
 
-           var layout = new EJS({url:"views/layout.ejs"})
-                   .render(data);
+           var layout = new EJS({url:"views/layout.ejs"}).render(data);
 
           document.getElementById("content-wrapper").innerHTML = layout;
 
@@ -87,8 +87,7 @@
 
 
 
-              var layout = new EJS({url:"views/login.ejs"})
-                   .render(data);
+              var layout = new EJS({url:"views/login.ejs"}).render();
 
                document.getElementById("content-wrapper").innerHTML = layout;
 

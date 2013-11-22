@@ -33,10 +33,10 @@ function onDeviceReady() {
 
            } */
            
-
-         ini_pgap();      
          alert(JSON.stringify(pictureSource))
-         alert(JSON.stringify(FB))
+         alert(JSON.stringify(FB));
+         ini_pgap();      
+
         
         }
 
