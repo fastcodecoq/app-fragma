@@ -22,6 +22,15 @@ function onDeviceReady() {
            }
 
 
+            try {
+                                      alert('Device is ready! Make sure you set your app_id below this alert.');
+                                      FB.init({ appId: "213583211996075", nativeInterface: CDV.FB, useCachedDialogs: false });
+                                      
+                                      } catch (e) {
+                                      alert(e);
+                                      }
+
+
          /*  try{
 
                  navigator.accelerometer.getCurrentAcceleration(fil_ok("Acelerometro"), null);

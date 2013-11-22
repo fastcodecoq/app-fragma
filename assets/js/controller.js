@@ -233,6 +233,16 @@ var camera_controller = function(el){
 
 
 
+  function getLoginStatus() {
+                FB.getLoginStatus(function(response) {
+                                  if (response.status == 'connected') {
+                                  alert('logged in');
+                                  } else {
+                                  alert('not logged in');
+                                  }
+                                  });
+            }
+
 
 // ---------------------------  phonegap
 
