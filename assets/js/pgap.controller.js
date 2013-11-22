@@ -1,5 +1,7 @@
 document.addEventListener("deviceready",onDeviceReady,false);
 
+
+
 function onDeviceReady() {
 
           var pictureSource=navigator.camera.PictureSourceType;
@@ -39,6 +41,7 @@ function onDeviceReady() {
 
 
 
+
 //-------------- iniciado 
 
 
@@ -47,6 +50,8 @@ function ini_pgap(){
     shake.startWatch(shake);
 
 }
+
+
 
 
 
@@ -64,3 +69,32 @@ function fil_ok( what ){
              console.log("ok "+ what)
 
  }
+
+
+
+
+function uploadPhoto(imageUri) {
+
+        var url = "http://api.fragmaclub.com/upload";
+
+        alert("imageUri")
+
+        var params = new Object();
+        params.otherinfo =  {
+
+             user: "demo",
+             text: "some text demo",             
+
+        };  
+
+        var options = new FileUploadOptions();
+        options.fileKey = "file";
+        options.fileName = imageUri.substr(imageUri.lastIndexOf('/')+1);
+        options.mimeType = "image/jpeg";
+        options.params = params;
+        options.chunkedMode = false;
+
+        var ft = new FileTransfer();
+        ft.upload(imageUri, url, successCallback, errorCallback, options);
+     
+      } 
