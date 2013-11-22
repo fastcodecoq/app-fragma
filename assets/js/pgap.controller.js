@@ -22,7 +22,7 @@ function onDeviceReady() {
            }
 
 
-           try{
+         /*  try{
 
                  navigator.accelerometer.getCurrentAcceleration(fil_ok("Acelerometro"), null);
 
@@ -31,7 +31,7 @@ function onDeviceReady() {
 
                alert("Dispositivo sin Acelerometro, no se podrá detectar shake");
 
-           }
+           } */
            
 
          ini_pgap();      
@@ -47,7 +47,7 @@ function onDeviceReady() {
 
 function ini_pgap(){
 
-    shake.startWatch(shake);
+    window.shake.startWatch(shake);
 
 }
 

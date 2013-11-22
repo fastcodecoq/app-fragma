@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns       = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id      = "com.apmontelibano.censo"
+    id      = "com.fragma.app"
     version     = "1.0">
 
     <name>Fragma Club</name>
@@ -17,6 +17,7 @@
         Gomosöft
     </author>
 
+    <access origin="*" />
 
     <preference name="target-device" value="universal" />
     <preference name="show-splash-screen-spinner" value="false" />

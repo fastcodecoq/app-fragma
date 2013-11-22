@@ -50,91 +50,12 @@
 
 <body>
 
- <div class="first-container">
- 	 <header class="row">
- 	 	<h1 id="logo" class="hidden">Fragma Club</h1>
- 	 	<img src="assets/img/logo.png" alt="" />
-
- 	 	<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-
- 	 </header>
-
- 	 <content clas="row clearfix">
-      
-      <div class="events-slider">
- 	 	<ul class="events" style="overflow:hidden;">
-
-      <li style="background:url(assets/img/evento2.jpg); " class="cover">
-       
-           <span class="legend">
-             <b>FIESTA LATINA</b> <br />
-                Viernes 16 de Agosto - YAMIL MACIA #CROSSOVER 
-           </span>
-  
-      </li>
-
- 	 	
-    	<li style="background:url(assets/img/evento1.jpg); " class="cover">
- 			 
- 	 				 <span class="legend">
- 	 				 	 <b>CRESPO DESDE ECUADOR</b> <br />
- 	 				 	    Sábado 17 de Agosto - OPEN SET ALFONSO PADILLA 
- 	 				 </span>
- 	
- 	 		</li>
+  <div id="content-wrapper">
+  </div>
 
 
 
- 	 	</ul>
- 	  </div>
- 	 	
- 	 </content>
-
- </div>
-
-
-
-      <footer class="fixed-bottom color">
-       <div class="navbar" >
-        <ul class="nav navbar-nav" id="menu">        
-            <li class="nav"><a href="#" rel="norel">
-            <figure class="sprite sprite-home"> 
-            &nbsp;              
-            </figure>
-          </a></li>
-          <li class="nav"><a href="#" rel="norel">
-            <figure class="sprite sprite-geo"> 
-            &nbsp;              
-            </figure>
-          </a></li>
-          <li class="nav"><a href="#" rel="norel">
-            <figure class="sprite sprite-cam"> 
-            &nbsp;              
-            </figure>
-          </a></li>
-          <li class="nav"><a href="#" rel="norel">
-            <figure class="sprite sprite-list"> 
-            &nbsp;              
-            </figure>
-          </a></li>
-          <li class="nav"><a href="#" rel="norel">
-            <figure class="sprite sprite-inf"> 
-            &nbsp;              
-            </figure>
-          </a></li>
-         </ul> 
-
-
-      </div>
-   </footer>    
-   
-
-
-
+   <script type="text/javascript" src="assets/js/ejs.js"></script>
 
    <script type="text/javascript">
 
@@ -142,7 +63,19 @@
            require("phonegap.js");
            require("assets/js/shake.js");
            require("assets/js/pgap.controller.js");
-           require("assets/js/controller.js");
+           require("assets/js/controller.js");           
+
+           var data = {};
+
+           var view = new EJS({url:"views/home.ejs"})
+                   .render(data);
+
+           data.view = view;
+
+           var layout = new EJS({url:"views/layout.ejs"})
+                   .render(data);
+
+          document.getElementById("content-wrapper").innerHTML = layout;
 
    </script>
  	 		
