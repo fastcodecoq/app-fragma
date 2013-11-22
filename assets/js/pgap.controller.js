@@ -35,7 +35,8 @@ function onDeviceReady() {
            
 
          ini_pgap();      
-         alert(typeof (pictureSource))
+         alert(JSON.stringify(pictureSource))
+         alert(JSON.stringify(FB))
         
         }
 
@@ -75,7 +76,7 @@ function fil_ok( what ){
 
 function uploadPhoto(imageUri) {
 
-        var url = "http://api.fragmaclub.com/upload";
+        var url = "http://fragmaclub.com/uploads";
 
         alert("imageUri")
 

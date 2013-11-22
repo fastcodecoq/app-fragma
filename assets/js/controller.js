@@ -194,7 +194,42 @@ function controller(){
 
 //  phonegap ------------------------
 
+$t.ini_listeners = function(){
 
+    $("[data-option]").tapOrClik(options_controller);
+
+}
+
+
+var prevents = function(e){
+      e.stopPropagation();
+      e.preventDefault();
+}
+
+
+$.fn.cmd = function(){ return $(this).attr("data-cmd"); }
+
+var options_controller = function(_this){
+
+       var cmd = _this.cmd();
+
+       switch(cmd){
+
+          case "cam":
+
+             camera_controller(_this);
+
+          break;
+
+       }
+
+}
+
+
+
+var camera_controller = function(el){
+   alert("will take pic");
+}
 
 
 
@@ -206,6 +241,7 @@ function controller(){
 
           	  
   	  $t.ini_render();
+      $t.ini_listeners();
 
   	  console.log("Controller iniciado");
 
@@ -223,3 +259,28 @@ var con = new controller();
 
 
 
+var flag = false;
+$.fn.tapOrClik = function(action){
+
+  var clickOrTap = ('ontouchstart' in window ) ? "touchstart" : "click";
+
+  $(this).live(clickOrTap, function(e){
+
+    e.stopPropagation();
+    e.preventDefault();
+  
+  if (!flag) {
+    flag = true;
+  
+    setTimeout(function(){ flag = false; }, 100);
+
+
+     action($(this));
+
+  }
+
+  return false
+
+});
+
+}
