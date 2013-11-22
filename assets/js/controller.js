@@ -240,6 +240,8 @@ var camera_controller = function(el){
 
 
  var fb_login = function() {
+
+       alert("intento de conexión");
                 
                 FB.login(
                          
