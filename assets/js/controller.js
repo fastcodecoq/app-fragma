@@ -221,6 +221,13 @@ var options_controller = function(_this){
 
           break;
 
+
+          case "fb-connect":
+
+            fb_login();
+
+          break;
+
        }
 
 }
@@ -232,17 +239,22 @@ var camera_controller = function(el){
 }
 
 
+ var fb_login = function() {
+                
+                FB.login(
+                         
+                         function(response) {
+                         if (response.session) {
+                         alert('logged in');
+                         } else {
+                         alert('not logged in');
+                         }
+                         },
+                         { scope: "email" }
 
-  function getLoginStatus() {
-                FB.getLoginStatus(function(response) {
-                                  if (response.status == 'connected') {
-                                  alert('logged in');
-                                  } else {
-                                  alert('not logged in');
-                                  }
-                                  });
+                      );
+
             }
-
 
 // ---------------------------  phonegap
 
