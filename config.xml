@@ -30,6 +30,11 @@
         <gap:platform name="blackberry" project="widgets"/>
     </gap:platforms>
 
+    <gap:plugin name="com.phonegap.plugins.facebookconnect">
+    <param name="APP_ID" value="213583211996075" />
+    <param name="APP_NAME" value="Hooshare" />
+    </gap:plugin>
+
     <icon src="appicon.png" gap:role="default" />
     <icon src="icon_72.png" width="96" height="96" />
     <icon src="icon_72.png" width="72" height="72" />
