@@ -196,7 +196,7 @@ function controller(){
 $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
-    
+    $(document).on("viewChanged", viewChanged)
     
 
      if(!navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
@@ -207,16 +207,20 @@ $t.ini_listeners = function(){
           }
          else{
 
-
-           if(window.localStorage.credentials)
-               window.route("home");
-            else
-               window.route("login");
+           window.pc = true;
+           window.route("home");
 
          }
 
 }
 
+
+var viewChanged = function(e){
+
+   var h = $(window).height() - ( $("header").height() + $("footer").height() ) + "px";
+   $("#cont-wrapper").css({height: h });
+
+}
 
 var prevents = function(e){
       e.stopPropagation();
@@ -225,10 +229,11 @@ var prevents = function(e){
 
 
 var loginStatusChange = function(response){
+
+  alert("hey")
   
   if (response.authResponse) {
     
-    console.log(response);
     window.route("home");
 
   } else 
@@ -251,6 +256,18 @@ var options_controller = function(_this){
 
           break;
 
+           case "home":
+
+             window.route("home");
+
+          break;
+
+          case "map":
+
+             window.route("map", renderMap);
+
+          break;
+
 
           case "fb-connect":
 
@@ -263,18 +280,39 @@ var options_controller = function(_this){
 }
 
 
+var renderMap = function(){
+  
+  //require("//maps.googleapis.com/maps/api/js?sensor=true", "body");
+        
+        var mapOptions = {
+          zoom: 17,
+          center: new google.maps.LatLng(-34.397, 150.644),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        
+        
+        
+        window.MAP = new google.maps.Map(document.getElementById('map'),
+        mapOptions);
+
+}
 
 var camera_controller = function(el){
       
+      if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
+      else{
+        window.pic = "assets/img/logo.png";
+        window.route("editor");
+         }
 
 }
 
 
 var picTaked = function(rs){
-
-    alert("Image taked");
-    console.log(rs);
+    
+    window.pic = rs;
+    window.route("editor");
 
 }
 
@@ -282,7 +320,7 @@ var picTaked = function(rs){
  var fb_login = function() {
 
 
-                FB.login( null ,{ scope: "email" });
+                FB.login( null ,{ scope: ["email", "publish_stream"] });
 
             }
 
