@@ -212,7 +212,7 @@ var loginStatusChange = function(response){
   
   if (response.authResponse) {
     
-    alert(JSON.parse(response))
+    sonsole.log(response);
     window.route("home");
 
   } else 
@@ -257,7 +257,8 @@ var camera_controller = function(el){
 
 var picTaked = function(rs){
 
-    alert(JSON.parse(rs));
+    alert("Image taked");
+    console.log(rs);
 
 }
 
