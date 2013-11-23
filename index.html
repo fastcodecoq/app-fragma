@@ -1,10 +1,106 @@
-<!doctype html>
-<html>
-  <head>
-   <title>tittle</title>
-   <script>
-     window.location='./main.html';
+
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+ 
+ <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />  
+
+ <title>Fragma Club App</title>
+
+ <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css" href="assets/icons/iconmoon/style.css" />
+
+ <link rel="stylesheet/less" href="assets/less/style.less" />
+
+ <script src="assets/js/lib.js"></script>
+
+
+ 
+ <script>
+  less = {
+    env: "development",
+    async: false,
+    fileAsync: false,
+    poll: 500,
+    functions: {},
+    dumpLineNumbers: "comments",
+    relativeUrls: false    
+  };
+</script>
+
+ <script src="assets/js/less.js"></script>
+
+ <script>
+
+ less.watch();
+
+
+ //var inte = setInterval(function(){
+
+ 	//location.reload();
+
+ //}, 15000);
+
+ </script>
+
+</head>
+
+<body>
+
+  <div id="content-wrapper">
+  </div>
+
+   <div id="fb-root"></div>
+
+   <script type="text/javascript" src="assets/js/ejs.js"></script>
+   <script type="text/javascript" src="cordova.js"></script>
+   <script type="text/javascript" src="cdv-plugin-fb-connect.js"></script>
+   <script type="text/javascript" src="facebook-js-sdk.js"></script>
+   <script type="text/javascript" src="assets/js/swipe.min.js"></script>
+   <script type="text/javascript" src="assets/js/shake.js"></script>
+   <script type="text/javascript" src="assets/js/pgap.controller.js"></script>
+   <script type="text/javascript" src="assets/js/controller.js"></script>
+   
+
+   <script type="text/javascript">
+                                        
+
+
+           if(window.localStorage.credentials){
+          
+           var data = {};
+
+           var view = new EJS({url:"views/home.ejs"})
+                   .render(data);
+
+           data.view = view;
+
+           var layout = new EJS({url:"views/layout.ejs"}).render(data);
+
+          document.getElementById("content-wrapper").innerHTML = layout;
+
+           }else
+           {
+
+
+
+              var layout = new EJS({url:"views/login.ejs"}).render();
+
+               document.getElementById("content-wrapper").innerHTML = layout;
+
+           }
+
+
+
+
    </script>
-  <body>
-  </body>
+ 	 		
+ 	 
+
+</body>
+
 </html>
