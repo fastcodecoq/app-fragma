@@ -249,7 +249,16 @@ var options_controller = function(_this){
 
 
 var camera_controller = function(el){
-   alert("will take pic");
+      
+      navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
+
+}
+
+
+var picTaked = function(rs){
+
+    alert(JSON.parse(rs));
+
 }
 
 
