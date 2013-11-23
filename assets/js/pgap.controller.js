@@ -55,7 +55,7 @@ function onDeviceReady() {
 
 var loginStatusChange = function(response){
 
-  alert("hey")
+  alert(JSON.parse(response))
   
   if (response.authResponse) {
     
