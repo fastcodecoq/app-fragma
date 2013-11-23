@@ -213,13 +213,11 @@ var prevents = function(e){
 var loginStatusChange = function(response){
   
   if (response.authResponse) {
-
-    alert("logged");
-    //updateUserInfo(response);
-
+  
+    window.route("home");
 
   } else 
-    alert("not logged");
+    window.route("login");
   
 
 }

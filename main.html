@@ -64,37 +64,17 @@
    <script type="text/javascript" src="assets/js/shake.js"></script>
    <script type="text/javascript" src="assets/js/pgap.controller.js"></script>
    <script type="text/javascript" src="assets/js/controller.js"></script>
+   <script type="text/javascript" src="assets/js/routes.js"></script>
    
 
    <script type="text/javascript">
                                         
 
 
-           if(window.localStorage.credentials){
-          
-           var data = {};
-
-           var view = new EJS({url:"views/home.ejs"})
-                   .render(data);
-
-           data.view = view;
-
-           var layout = new EJS({url:"views/layout.ejs"}).render(data);
-
-          document.getElementById("content-wrapper").innerHTML = layout;
-
-           }else
-           {
-
-
-
-              var layout = new EJS({url:"views/login.ejs"}).render();
-
-               document.getElementById("content-wrapper").innerHTML = layout;
-
-           }
-
-
+           if(window.localStorage.credentials)
+               window.route("home");
+            else
+              window.route("login");
 
 
    </script>
