@@ -211,7 +211,8 @@ var prevents = function(e){
 var loginStatusChange = function(response){
   
   if (response.authResponse) {
-  
+    
+    alert(JSON.parse(response))
     window.route("home");
 
   } else 
