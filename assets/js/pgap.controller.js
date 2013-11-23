@@ -57,7 +57,7 @@ var loginStatusChange = function(response){
 
   alert("Conecting with FB")
   
-  if (response.authResponse.userId != null) {
+  if (response.authResponse.userId) {
 
     window.userId = response.authResponse.userId;
     window.route("home");
