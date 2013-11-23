@@ -25,7 +25,7 @@ function onDeviceReady() {
            try {
 
                                       
-                FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB, useCachedDialogs: false });
+                FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });
                 alert("FB iniciado");
                                       
            } catch (e) {

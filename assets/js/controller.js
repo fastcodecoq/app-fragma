@@ -197,6 +197,9 @@ function controller(){
 $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
+    
+    FB.Event.subscribe('auth.statusChange', loginStatusChange);
+    FB.getLoginStatus(loginStatusChange);
 
 }
 
@@ -206,6 +209,20 @@ var prevents = function(e){
       e.preventDefault();
 }
 
+
+var loginStatusChange = function(response){
+  
+  if (response.authResponse) {
+
+    alert("logged");
+    //updateUserInfo(response);
+
+
+  } else 
+    alert("not logged");
+  
+
+}
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
@@ -241,20 +258,8 @@ var camera_controller = function(el){
 
  var fb_login = function() {
 
-       alert("intento de conexión");
-                
-                FB.login(
-                         
-                         function(response) {
-                         if (response.session) {
-                         alert('logged in');
-                         } else {
-                         alert('not logged in');
-                         }
-                         },
-                         { scope: "email" }
 
-                      );
+                FB.login( null ,{ scope: "email" });
 
             }
 
