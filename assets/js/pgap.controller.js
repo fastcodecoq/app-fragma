@@ -55,16 +55,14 @@ function onDeviceReady() {
 
 var loginStatusChange = function(response){ 
 
-   alert(JSON.stringify(response)); 
   
-   if (response.status == 'connected') {
+   if (resp.authResponse && window.localStorage.logged) {
   
-          alert('logged in');
           window.route("home");
   
     } else {
   
-          alert('not logged in');
+
           window.route("login");
   
      }
@@ -72,9 +70,15 @@ var loginStatusChange = function(response){
 
 }
 
- FB.Event.subscribe('auth.login', loginStatusChange);
- FB.Event.subscribe('auth.logout', loginStatusChange);
- FB.Event.subscribe('auth.statusChange', loginStatusChange);         
+
+var login = function(){ window.localStorage.logged = true; }
+
+var logout = function(){ window.route("login"); window.localStorage.logged = false; }
+
+ FB.Event.subscribe('auth.login', login);
+ FB.Event.subscribe('auth.logout', logout);
+ FB.Event.subscribe('auth.statusChange', loginStatusChange);      
+    
  FB.getLoginStatus(loginStatusChange); 
                             
 
