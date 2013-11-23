@@ -17,7 +17,7 @@ function onDeviceReady() {
            catch(e)
            {
 
-            alert("error obteniendo sistema de archivos local");
+            console.log("error obteniendo sistema de archivos local");
 
            }
 
@@ -25,12 +25,11 @@ function onDeviceReady() {
            try {
 
                                       
-                FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });
-                alert("FB iniciado");
+                FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
                                       
            } catch (e) {
                 
-                 alert(e);
+                 console.log(e);
                                       
              }
 

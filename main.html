@@ -68,13 +68,19 @@
    
 
    <script type="text/javascript">
-                                        
+                            
+
+         if(!navigator.platform.toLowerCase().match(/linux|windows|mac/))
+          FB.getLoginStatus(loginStatusChange);
+         else{
 
 
            if(window.localStorage.credentials)
                window.route("home");
             else
                window.route("login");
+
+         }
 
 
    </script>

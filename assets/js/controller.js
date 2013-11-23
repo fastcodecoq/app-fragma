@@ -79,7 +79,7 @@ function controller(){
                       });
 
           $(".fixed-bottom").swipe({  
-                     swipeUp : function(e){ e.preventDefault(); alert("hey"); $(this).addClass("color"); },
+                     swipeUp : function(e){ e.preventDefault(); $(this).addClass("color"); },
                      swipeDown : function(e){ e.preventDefault(); $(this).removeClass("color"); }
                       });
       
@@ -186,10 +186,7 @@ function controller(){
  	  $t.live_render();
  	  $t.render_menu();
     $t.swipeOn();
-    $t.render_events();
-    
-    
-  
+    $t.render_events();  
 
  }
 
@@ -200,8 +197,7 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     
-    FB.Event.subscribe('auth.statusChange', loginStatusChange);
-    FB.getLoginStatus(loginStatusChange);
+    FB.Event.subscribe('auth.statusChange', loginStatusChange);   
 
 }
 
