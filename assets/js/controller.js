@@ -283,7 +283,8 @@ var renderMap = function(){
     }
 
 
-    require_once("http://maps.google.com/maps/api/js?sensor=false&callback=window.showMap", "body");
+    if(!require_once("http://maps.google.com/maps/api/js?sensor=false&callback=window.showMap", "body"))
+         window.showMap();
         
         
 
