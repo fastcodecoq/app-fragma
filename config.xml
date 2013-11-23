@@ -2,7 +2,10 @@
 <widget xmlns       = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id      = "com.fragma.mobile"
+    versionCode = "10"
     version     = "1.0">
+
+
 
     <name>Fragma Club</name>
 
@@ -12,8 +15,7 @@
     Enterate de todos los eventos del club, e incluso indicale a la aplicación que te recuerde uno de ellos.
     </description>
 
-    <author href="http://gomosoft.pro"
-        email="info@gomosoft.com">
+    <author href="http://gomosoft.pro" email="info@gomosoft.com">
         Gomosöft
     </author>
 
@@ -22,13 +24,8 @@
     <preference name="target-device" value="universal" />
     <preference name="show-splash-screen-spinner" value="false" />
     <preference name="android-minSdkVersion" value="14" />
+    <preference name="phonegap-version" value="2.9.0" />
 
-
-
-    <gap:platforms>        
-        <gap:platform name="blackberry" project="widgets"/>
-        <gap:platform name="blackberry" project="widgets"/>
-    </gap:platforms>
 
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
     <param name="APP_ID" value="1437152043163607" />
@@ -52,9 +49,6 @@
 <feature name="http://api.phonegap.com/1.0/media"/>
 <feature name="http://api.phonegap.com/1.0/file"/>
 <feature name="http://api.phonegap.com/1.0/geolocation"/>
-<feature id="blackberry.widgetcache" required="true" version="1.0.0.0" />
-<feature id="blackberry.system"  required="true" version="1.0.0.0" />
-<feature id="org.apache.cordova" required="true" version="1.0.0" />
 
 
 </widget>
