@@ -312,7 +312,7 @@ var picTaked = function(rs){
  var fb_login = function() {
 
 
-                FB.login( null ,{ scope: ["email", "publish_stream"] });
+                FB.login( null ,{ scope: "email, publish_stream" });
 
             }
 
