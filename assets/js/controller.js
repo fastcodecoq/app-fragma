@@ -197,14 +197,7 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     $(document).on("viewChanged", viewChanged)
-    
-
-     if(navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
-
-           window.pc = true;
-           window.route("home");
-
-         }
+  
 
 }
 
@@ -221,7 +214,7 @@ var prevents = function(e){
       e.preventDefault();
 }
 
- 
+
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
@@ -280,12 +273,12 @@ var renderMap = function(){
 
 var camera_controller = function(el){
       
-      if(!window.pc)
+     // if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
-      else{
+      /*else{
         window.pic = "assets/img/logo.png";
         window.route("editor");
-         }
+         }*/
 
 }
 
