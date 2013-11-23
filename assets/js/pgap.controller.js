@@ -1,11 +1,11 @@
-document.addEventListener("deviceready",onDeviceReady,false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
 function onDeviceReady() {
 
-          var pictureSource=navigator.camera.PictureSourceType;
-          var destinationType=navigator.camera.DestinationType;        
+          window.pictureSource=navigator.camera.PictureSourceType;
+          window.destinationType=navigator.camera.DestinationType;        
                 
           
          try{
@@ -37,20 +37,19 @@ function onDeviceReady() {
 
           try{
 
-                 if(navigator.accelerometer)
+                 if(navigator.accelerometer instanceof Object)
                   {
                     ini_pgap();
-                    alert("Acelerometro on");
+                    console.log("Acelerometro on");
                   }
 
            }
            catch(e){
 
-               alert("Dispositivo sin Acelerometro, no se podrá detectar shake");
+               console.log("Dispositivo sin Acelerometro, no se podrá detectar shake");
 
            } 
-                    
-         alert(JSON.stringify(FB));            
+                            
 
         
         }
