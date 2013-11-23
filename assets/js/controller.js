@@ -197,7 +197,23 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     
-    FB.Event.subscribe('auth.statusChange', loginStatusChange);   
+    
+
+     if(!navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
+          
+          FB.Event.subscribe('auth.statusChange', loginStatusChange);         
+          FB.getLoginStatus(loginStatusChange);
+
+          }
+         else{
+
+
+           if(window.localStorage.credentials)
+               window.route("home");
+            else
+               window.route("login");
+
+         }
 
 }
 

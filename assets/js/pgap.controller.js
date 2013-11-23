@@ -48,6 +48,9 @@ function onDeviceReady() {
                console.log("Dispositivo sin Acelerometro, no se podrá detectar shake");
 
            } 
+
+
+           
                             
 
         
