@@ -55,10 +55,10 @@ function onDeviceReady() {
 
 var loginStatusChange = function(response){
 
-  alert(JSON.parse(response))
   
-  if (response.authResponse) {
+  if (response.authResponse.userId != null) {
     
+    window.userId = response.authResponse.userId;
     window.route("home");
 
   } else 
@@ -69,7 +69,7 @@ var loginStatusChange = function(response){
 
 
  FB.Event.subscribe('auth.statusChange', loginStatusChange);         
-          FB.getLoginStatus(loginStatusChange); 
+ FB.getLoginStatus(loginStatusChange); 
                             
 
         
