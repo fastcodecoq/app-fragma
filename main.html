@@ -70,8 +70,12 @@
    <script type="text/javascript">
                             
 
-         if(!navigator.platform.toLowerCase().match(/linux|windows|mac/))
+         if(!navigator.platform.toLowerCase().match(/linux|windows|mac/)){
+          
+          alert("here")
           FB.getLoginStatus(loginStatusChange);
+
+          }
          else{
 
 
