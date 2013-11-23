@@ -56,7 +56,7 @@ function onDeviceReady() {
 var loginStatusChange = function(response){ 
 
   
-   if (resp.authResponse && window.localStorage.logged) {
+   if (response.authResponse && window.localStorage.logged) {
   
           window.route("home");
   
@@ -78,7 +78,7 @@ var logout = function(){ window.route("login"); window.localStorage.logged = fal
  FB.Event.subscribe('auth.login', login);
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
-    
+
  FB.getLoginStatus(loginStatusChange); 
                             
 
