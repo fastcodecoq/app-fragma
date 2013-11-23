@@ -22,29 +22,35 @@ function onDeviceReady() {
            }
 
 
-            try {
-                                      alert('Device is ready! Make sure you set your app_id below this alert.');
-                                      FB.init({ appId: "213583211996075", nativeInterface: CDV.FB, useCachedDialogs: false });
+           try {
+
                                       
-                 } catch (e) {
-                                      alert(e);
-                                      }
+                FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB, useCachedDialogs: false });
+                alert("FB iniciado");
+                                      
+           } catch (e) {
+                
+                 alert(e);
+                                      
+             }
 
 
-         /*  try{
+          try{
 
-                 navigator.accelerometer.getCurrentAcceleration(fil_ok("Acelerometro"), null);
+                 if(navigator.accelerometer)
+                  {
+                    ini_pgap();
+                    alert("Acelerometro on");
+                  }
 
            }
            catch(e){
 
                alert("Dispositivo sin Acelerometro, no se podrá detectar shake");
 
-           } */
-           
-         alert(JSON.stringify(pictureSource))
-         alert(JSON.stringify(FB));
-         ini_pgap();      
+           } 
+                    
+         alert(JSON.stringify(FB));            
 
         
         }
@@ -57,7 +63,7 @@ function onDeviceReady() {
 
 function ini_pgap(){
 
-    window.shake.startWatch(shake);
+    shake.startWatch(shake);
 
 }
 

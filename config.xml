@@ -31,8 +31,8 @@
     </gap:platforms>
 
     <gap:plugin name="com.phonegap.plugins.facebookconnect">
-    <param name="APP_ID" value="213583211996075" />
-    <param name="APP_NAME" value="Hooshare" />
+    <param name="APP_ID" value="1437152043163607" />
+    <param name="APP_NAME" value="Fragma Club" />
     </gap:plugin>
 
     <icon src="appicon.png" gap:role="default" />
