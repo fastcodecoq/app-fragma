@@ -50,7 +50,26 @@ function onDeviceReady() {
            } 
 
 
-           
+
+
+
+var loginStatusChange = function(response){
+
+  alert("hey")
+  
+  if (response.authResponse) {
+    
+    window.route("home");
+
+  } else 
+    window.route("login");
+  
+
+}
+
+
+ FB.Event.subscribe('auth.statusChange', loginStatusChange);         
+          FB.getLoginStatus(loginStatusChange); 
                             
 
         

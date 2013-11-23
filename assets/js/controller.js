@@ -199,13 +199,7 @@ $t.ini_listeners = function(){
     $(document).on("viewChanged", viewChanged)
     
 
-     if(!navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
-          
-          FB.Event.subscribe('auth.statusChange', loginStatusChange);         
-          FB.getLoginStatus(loginStatusChange);
-
-          }
-         else{
+     if(navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
 
            window.pc = true;
            window.route("home");
@@ -227,20 +221,7 @@ var prevents = function(e){
       e.preventDefault();
 }
 
-
-var loginStatusChange = function(response){
-
-  alert("hey")
-  
-  if (response.authResponse) {
-    
-    window.route("home");
-
-  } else 
-    window.route("login");
-  
-
-}
+ 
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
