@@ -57,10 +57,9 @@ var loginStatusChange = function(response){
   
   if (response.authResponse) {
 
-    window.userId = response.authResponse.userId;
     window.route("home");
 
-  } else 
+  }else 
     window.route("login");
   
 

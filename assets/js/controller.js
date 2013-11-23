@@ -256,18 +256,21 @@ var options_controller = function(_this){
 
 var renderMap = function(){
   
-  //require("//maps.googleapis.com/maps/api/js?sensor=true", "body");
-        
-        var mapOptions = {
+  $.getScript("http://maps.googleapis.com/maps/api/js?sensor=true", function(){
+   
+    var mapOptions = {
           zoom: 17,
           center: new google.maps.LatLng(-34.397, 150.644),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         
+                
+    window.MAP = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+
+  });
         
         
-        window.MAP = new google.maps.Map(document.getElementById('map'),
-        mapOptions);
 
 }
 
