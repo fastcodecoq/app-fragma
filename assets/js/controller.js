@@ -228,7 +228,7 @@ var loginStatusChange = function(response){
   
   if (response.authResponse) {
     
-    sonsole.log(response);
+    console.log(response);
     window.route("home");
 
   } else 
