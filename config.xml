@@ -20,6 +20,10 @@
     </author>
 
     <access origin="*" />
+    <access origin="*.fragmaclub.com" />
+    <access origin="http://fragmaclub.com" />
+    <access origin="*.google.com"/>
+    <access origin="*.googleapis.com"/>
 
     <preference name="target-device" value="universal" />
     <preference name="show-splash-screen-spinner" value="false" />
