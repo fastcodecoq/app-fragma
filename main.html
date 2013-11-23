@@ -69,11 +69,9 @@
 
    <script type="text/javascript">
                             
-        alert(navigator.platform.toLowerCase());
 
-         if(!navigator.platform.toLowerCase().match(/linux|windows|mac/)){
-          
-          alert("here")
+         if(!navigator.platform.toLowerCase().match(/linux i686|windows|mac/)){
+        
           FB.getLoginStatus(loginStatusChange);
 
           }
