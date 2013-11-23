@@ -197,7 +197,15 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     $(document).on("viewChanged", viewChanged)
-  
+    
+     if( screen.width >= 1100)
+       {
+        
+         window.route("home");
+         window.pc = true;
+       
+       }
+
 
 }
 
@@ -255,20 +263,27 @@ var options_controller = function(_this){
 
 
 var renderMap = function(){
-  
-  $.getScript("http://maps.googleapis.com/maps/api/js?sensor=true", function(){
-   
+
+ 
+
+  window.showMap = function(){
+
+
     var mapOptions = {
           zoom: 17,
-          center: new google.maps.LatLng(-34.397, 150.644),
+          center: new google.maps.LatLng(37.4419, -122.1419),
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        
-                
+                 
+
     window.MAP = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 
-  });
+  
+    }
+
+
+    require_once("http://maps.google.com/maps/api/js?sensor=false&callback=window.showMap", "body");
         
         
 
@@ -276,12 +291,12 @@ var renderMap = function(){
 
 var camera_controller = function(el){
       
-     // if(!window.pc)
+      if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
-      /*else{
+      else{
         window.pic = "assets/img/logo.png";
         window.route("editor");
-         }*/
+      }
 
 }
 
