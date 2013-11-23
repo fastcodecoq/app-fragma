@@ -185,9 +185,11 @@ function controller(){
  	  $t.render_sliders();
  	  $t.live_render();
  	  $t.render_menu();
- 	  $t.render_events();
     $t.swipeOn();
- 
+    $t.render_events();
+    
+    
+  
 
  }
 
@@ -280,7 +282,7 @@ var camera_controller = function(el){
 
 
 
-var con = new controller();
+window.con = new controller();
           $(con.ini);
 
 

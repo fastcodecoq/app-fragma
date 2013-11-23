@@ -16,6 +16,9 @@ window.route = function(where){
 
            document.getElementById("content-wrapper").innerHTML = layout;
 
+           window.con.ini_render();
+
+
 	      break;
 
 
