@@ -53,19 +53,27 @@ function onDeviceReady() {
 
 
 
-var loginStatusChange = function(response){  
+var loginStatusChange = function(response){ 
+
+   alert(JSON.stringify(response)); 
   
-  if (response.authResponse) {
-
-    window.route("home");
-
-  }else 
-    window.route("login");
+   if (response.status == 'connected') {
+  
+          alert('logged in');
+          window.route("home");
+  
+    } else {
+  
+          alert('not logged in');
+          window.route("login");
+  
+     }
   
 
 }
 
-
+ FB.Event.subscribe('auth.login', loginStatusChange);
+ FB.Event.subscribe('auth.logout', loginStatusChange);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);         
  FB.getLoginStatus(loginStatusChange); 
                             
