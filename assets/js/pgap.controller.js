@@ -53,11 +53,9 @@ function onDeviceReady() {
 
 
 
-var loginStatusChange = function(response){
-
-  alert("Conecting with FB")
+var loginStatusChange = function(response){  
   
-  if (response.authResponse.userId) {
+  if (response.authResponse) {
 
     window.userId = response.authResponse.userId;
     window.route("home");
