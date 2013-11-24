@@ -222,7 +222,8 @@ $t.ini_listeners = function(){
 
 
 window.zoomOut_pinch_controller = function(){
-     
+    
+    alert("zoom out");   
 
     var width = $("#canvas-image").width();
     var height = $("#canvas-image").height();
@@ -235,6 +236,9 @@ window.zoomOut_pinch_controller = function(){
 }
 
 window.zoom_pinch_controller = function(){
+
+    alert("zoom out");   
+  
    
     var width = $("#canvas-image").width();
     var height = $("#canvas-image").height();
