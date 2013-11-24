@@ -133,6 +133,7 @@ function controller(){
 
   		
       $("#menu li").css({marginLeft : w + "em"});
+      $("#menu li:first").css({marginLeft : 0});
       $("#menu li").show();
 
        }
