@@ -109,7 +109,7 @@ function controller(){
        else if( w >= 600 && w <768)
         w = f*1.2;        
   		 else if(w >= 768 && w < 900)
-  		 	w = f*1.45;
+  		 	w = f*1;
   		 else if(w >= 900 &&  w < 1200)
   		 	w = f*1.7;
   		 else if(w >= 1200)

@@ -29,6 +29,20 @@ window.route = function(where, callback){
 
                document.getElementById("content-wrapper").innerHTML = layout;
 
+               var loginRender = function(){
+				
+					var logh = $(".cont-w").height();
+					var doch = $(document).height();
+					var offset = ( doch - logh ) / 2;
+					
+        	       $(".cont-w").css({marginTop : offset});
+
+               }
+
+
+               $(window).on("resize", loginRender);
+               loginRender();
+
 	      break;
 
 	       case "map":
