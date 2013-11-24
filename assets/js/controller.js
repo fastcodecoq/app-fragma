@@ -200,6 +200,13 @@ function controller(){
 
  }
 
+ var pinch_controller = function (e, $target, data) {
+  alert("hey")
+                    var scale = data.scale;
+                    $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
+                }
+                
+
 
 //  phonegap ------------------------
 
@@ -207,9 +214,11 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     $(document).on("viewChanged", viewChanged);
-    var env = $$.environment();
-    
-     if( !env.isMobile )
+    $('#canvas-image').live('touchy-pinch', pinch_controller);
+
+
+  
+     if( screen.width >= 1100 )
        {
         
          window.route("home");
@@ -221,34 +230,6 @@ $t.ini_listeners = function(){
 }
 
 
-window.zoomOut_pinch_controller = function(){
-    
-    alert("zoom out");   
-
-    var width = $("#canvas-image").width();
-    var height = $("#canvas-image").height();
-
-    $("#canvas-image").css({
-      width : width - 5,
-      height : height - 5
-    });
-
-}
-
-window.zoom_pinch_controller = function(){
-
-    alert("zoom out");   
-  
-   
-    var width = $("#canvas-image").width();
-    var height = $("#canvas-image").height();
-
-    $("#canvas-image").css({
-      width : width + 5,
-      height : height + 5
-    });
-
-}
 
 
 var viewChanged = function(e){
