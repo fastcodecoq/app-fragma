@@ -29,11 +29,7 @@ function onDeviceReady() {
 
                     var loginStatusChange = function(response){ 
                     
-                        alert(JSON.stringify(response));
-
-                        FB.api('/me', function(rs){
-                             alert(JSON.stringify(rs));
-                        });
+                        alert(JSON.stringify(response));            
                         
                         if (response.authResponse && window.localStorage.logged) {
                         
@@ -46,7 +42,7 @@ function onDeviceReady() {
                         window.localStorage.token = response.authResponse.accessToken;    
                         
                         
-                        if(response.authResponse.userID && window.localStorage.uid)  
+                        if(response.authResponse.userId && window.localStorage.uid)  
                         {
                         alert(window.localStorage.uid + " " + response.authResponse.userID);              
                         window.localStorage.uid = response.authResponse.userID;
@@ -76,7 +72,6 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
 
- FB.getLoginStatus(loginStatusChange); 
 
                                       
            } catch (e) {
