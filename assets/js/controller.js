@@ -76,7 +76,8 @@ function controller(){
                      swipeLeft: slider.toRight , 
                      swipeUp : function(e){ e.preventDefault(); },
                      swipeDown : function(e){ e.preventDefault(); }
-                      });
+                      });      
+
 
           $(".fixed-bottom").swipe({  
                      swipeUp : function(e){ e.preventDefault(); $(this).addClass("color"); },
@@ -160,6 +161,10 @@ function controller(){
           $t.render_menu();
           $t.render_events();	    
            $(document).vc();
+           renderCanvasEditor(true);
+
+           $(".canvas-editor-opts").css({bottom: $("footer").height() });
+           $(".canvas-editor").css({height: $("#frame").height() });
 
   		});
 
@@ -179,6 +184,7 @@ function controller(){
   	$(".events li").css({ width : iw + "px"});
 
 
+
   }
 
 
@@ -189,6 +195,8 @@ function controller(){
  	  $t.render_menu();
     $t.swipeOn();
     $t.render_events();  
+           $(".canvas-editor-opts").css({bottom: $("footer").height() });
+
 
  }
 
@@ -198,9 +206,10 @@ function controller(){
 $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
-    $(document).on("viewChanged", viewChanged)
+    $(document).on("viewChanged", viewChanged);
+    var env = $$.environment();
     
-     if( screen.width >= 1100)
+     if( !env.isMobile )
        {
         
          window.route("home");
@@ -208,6 +217,32 @@ $t.ini_listeners = function(){
        
        }
 
+
+}
+
+
+window.zoomOut_pinch_controller = function(){
+     
+
+    var width = $("#canvas-image").width();
+    var height = $("#canvas-image").height();
+
+    $("#canvas-image").css({
+      width : width - 5,
+      height : height - 5
+    });
+
+}
+
+window.zoom_pinch_controller = function(){
+   
+    var width = $("#canvas-image").width();
+    var height = $("#canvas-image").height();
+
+    $("#canvas-image").css({
+      width : width + 5,
+      height : height + 5
+    });
 
 }
 
@@ -274,44 +309,58 @@ var options_controller = function(_this){
 
 window.set_frame_controller = function(_this , auto){
 
-         var img = document.createElement("img");
          var _this = (auto) ? $(".canvas-editor-opts .markup-mini:first") : _this;
-         var src = _this.find("img:first").attr("src");
+         
+         _this.parents("ul:first").find("span.active").removeClass("active");
+         _this.addClass("active");
+
+         
+
+       renderCanvasEditor();
+
+
+}
+
+
+var renderCanvasEditor = function(resize){
+         
+         _this = $(".canvas-editor-opts span.active"); 
+         var src = _this.find("img:first").attr("src");      
+         var img = document.createElement("img");        
+             img.src = src;  
+        
+        
          var offset = _this.attr("data-offset").split(" ");
              if(offset.length > 1)
                offset = { tops : (parseInt(offset[0]) * 100) / 640, sides : (parseInt(offset[1]) * 100) / 360 };
              else
               offset = { tops : parseInt(offset) , sides : parseInt(offset)}
 
-             img.src = src;
 
-        var width  = $("#canvas-image").width() + offset.tops + "px";
-        var height  = $("#canvas-image").height() + offset.sides  + "px";
-
-        $("#frame").css({left:"50%", marginLeft: ((parseInt(width) / 2)*-1) + "px"});
+        var width = $("#frame").width();
+        var height = $("#frame").height();
 
 
-        if(window.markup != src){
+        if(window.markup != src || resize){
+
           $("#canvas-image").css({
-                                   width: parseInt(width) - ( offset.tops * 2) + "px"
-                                 , height : parseInt(height) - ( offset.sides * 2) + "px"
+                                   width: width - ( offset.tops * 2) 
+                                 , height : height - ( offset.sides * 2) 
                                  , paddingTop : offset.tops  + "px" 
-                               });
+                               });            
 
-             $(img).attr("style","width:" + (parseInt(width) - 20 ) +"px; height:" + height + ";");            
-
-           }else
-             $(img).attr("style","width:" + $("#canvas-image").width() +"px; height:" + $("#canvas-image").height()+ ";");            
-
+           }            
 
 
 
         window.markup = src;  
-        $("#frame").html("").append(img);
+        
+        $("#frame")
+        .html("")
+        .append(img);
 
-
+     
 }
-
 
 var renderMap = function(){
 

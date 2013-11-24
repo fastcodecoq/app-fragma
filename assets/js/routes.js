@@ -76,7 +76,8 @@ window.route = function(where, callback){
 
 
            document.getElementById("content-wrapper").innerHTML = layout;
-       
+           $$("#frame").on("pinchIn", window.zoomOut_pinch_controller);
+           $$("#frame").on("pinchOut", window.zoom_pinch_controller);
 
            window.con.ini_render();
            window.set_frame_controller(null, true);
