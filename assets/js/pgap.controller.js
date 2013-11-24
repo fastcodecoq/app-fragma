@@ -96,7 +96,21 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
            } 
 
 
+           try{
+            
+            window.plugins.BackgroundService.callService('callService', callServiceSuccessCallBack, callServiceFailCallBack);
 
+            var callServiceSuccessCallBack = function(e) {
+            alert("Success");
+            }
+            
+            var callServiceFailCallBack = function(f) {
+            alert("Failure");
+            }
+
+           }catch(e){
+             alert(e);
+           }
 
 
 

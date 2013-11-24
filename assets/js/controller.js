@@ -358,7 +358,7 @@ $.fn.tapOrClik = function(action){
   
     setTimeout(function(){ flag = false; }, 100);
 
-
+     $(this).focus();
      action($(this));
 
   }
