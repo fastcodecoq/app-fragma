@@ -1,6 +1,8 @@
 $.fn.vc = function(){ $(this).trigger("viewChanged"); }
 
 window.route = function(where, callback){
+
+	$("#canvas-image").unbind("touchyPinch");
 		
 
 	   switch(where){
@@ -79,6 +81,8 @@ window.route = function(where, callback){
 
            window.con.ini_render();
            window.set_frame_controller(null, true);
+
+           $("#canvas-image").bind("touchyPinch", window.pinch_controller);
 
 	      break;
 

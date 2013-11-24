@@ -200,10 +200,12 @@ function controller(){
 
  }
 
- var pinch_controller = function (e, $target, data) {
-  alert("hey")
+ window.pinch_controller = function (e, $target, data) {
+
                     var scale = data.scale;
                     $target.css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
+                    console.log(data);
+                    
                 }
                 
 
@@ -214,7 +216,7 @@ $t.ini_listeners = function(){
 
     $("[data-option]").tapOrClik(options_controller);
     $(document).on("viewChanged", viewChanged);
-    $('#canvas-image').live('touchy-pinch', pinch_controller);
+    
 
 
   
