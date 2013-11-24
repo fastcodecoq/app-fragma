@@ -28,23 +28,20 @@ function onDeviceReady() {
                 FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
 
                     var loginStatusChange = function(response){ 
-                    
-                        alert(JSON.stringify(response));            
+                      
+                        alert(JSON.stringify(response))
                         
-                        if (response.authResponse && window.localStorage.logged) {
+                        if (response.authResponse && response.status === "connected") {
                         
-                        
-                        
-                        if(window.localStorage.token){
-                        alert(window.localStorage.token + " | " + response.authResponse.accessToken);
+  
+                        if(window.localStorage.token){                        
                         window.localStorage.token = response.authResponse.accessToken;    
                         }else
                         window.localStorage.token = response.authResponse.accessToken;    
                         
                         
-                        if(response.authResponse.userId && window.localStorage.uid)  
-                        {
-                        alert(window.localStorage.uid + " " + response.authResponse.userID);              
+                        if(response.authResponse.userID && window.localStorage.uid)  
+                        {                            
                         window.localStorage.uid = response.authResponse.userID;
                         }else if(response.authResponse.userID)
                         window.localStorage.uid = response.authResponse.userID;
@@ -72,7 +69,6 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
 
-
                                       
            } catch (e) {
                 
@@ -83,11 +79,10 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
 
           try{
 
-                 if(navigator.accelerometer instanceof Object)
-                  {
+               
                     ini_pgap();
                     console.log("Acelerometro on");
-                  }
+                  
 
            }
            catch(e){
