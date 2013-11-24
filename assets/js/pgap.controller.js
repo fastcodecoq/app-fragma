@@ -101,15 +101,15 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
             window.plugins.BackgroundService.callService('callService', callServiceSuccessCallBack, callServiceFailCallBack);
 
             var callServiceSuccessCallBack = function(e) {
-            alert("Success");
+            console.log("Success");
             }
             
             var callServiceFailCallBack = function(f) {
-            alert("Failure");
+            console.log("Failure");
             }
 
            }catch(e){
-             alert(e);
+             console.log("Error", e);
            }
 
 

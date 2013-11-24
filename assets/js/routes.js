@@ -65,6 +65,7 @@ window.route = function(where, callback){
        
 
            window.con.ini_render();
+           window.set_frame_controller(null, true);
 
 	      break;
 

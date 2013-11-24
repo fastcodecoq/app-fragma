@@ -159,6 +159,7 @@ function controller(){
           $t.render_sliders();
           $t.render_menu();
           $t.render_events();	    
+           $(document).vc();
 
   		});
 
@@ -215,6 +216,7 @@ var viewChanged = function(e){
 
    var h = $(window).height() - ( $("header").height() + $("footer").height() ) + "px";
    $("#cont-wrapper").css({height: h });
+   window.markup = null;
 
 }
 
@@ -252,6 +254,13 @@ var options_controller = function(_this){
           break;
 
 
+            case "set-frame":
+
+             window.set_frame_controller(_this);
+
+          break;
+
+
           case "fb-connect":
 
             fb_login();
@@ -259,6 +268,47 @@ var options_controller = function(_this){
           break;
 
        }
+
+}
+
+
+window.set_frame_controller = function(_this , auto){
+
+         var img = document.createElement("img");
+         var _this = (auto) ? $(".canvas-editor-opts .markup-mini:first") : _this;
+         var src = _this.find("img:first").attr("src");
+         var offset = _this.attr("data-offset").split(" ");
+             if(offset.length > 1)
+               offset = { tops : (parseInt(offset[0]) * 100) / 640, sides : (parseInt(offset[1]) * 100) / 360 };
+             else
+              offset = { tops : parseInt(offset) , sides : parseInt(offset)}
+
+             img.src = src;
+
+        var width  = $("#canvas-image").width() + offset.tops + "px";
+        var height  = $("#canvas-image").height() + offset.sides  + "px";
+
+        $("#frame").css({left:"50%", marginLeft: ((parseInt(width) / 2)*-1) + "px"});
+
+
+        if(window.markup != src){
+          $("#canvas-image").css({
+                                   width: parseInt(width) - ( offset.tops * 2) + "px"
+                                 , height : parseInt(height) - ( offset.sides * 2) + "px"
+                                 , paddingTop : offset.tops  + "px" 
+                               });
+
+             $(img).attr("style","width:" + (parseInt(width) - 20 ) +"px; height:" + height + ";");            
+
+           }else
+             $(img).attr("style","width:" + $("#canvas-image").width() +"px; height:" + $("#canvas-image").height()+ ";");            
+
+
+
+
+        window.markup = src;  
+        $("#frame").html("").append(img);
+
 
 }
 
@@ -296,7 +346,7 @@ var camera_controller = function(el){
       if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
       else{
-        window.pic = "assets/img/logo.png";
+        window.pic = "assets/img/evento1.jpg";
         window.route("editor");
       }
 
