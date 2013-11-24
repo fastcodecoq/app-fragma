@@ -299,8 +299,8 @@ window.set_frame_controller = function(_this , auto){
          
          _this.parents("ul:first").find("span.active").removeClass("active");
          _this.addClass("active");
+       
 
-         
 
        renderCanvasEditor();
 
@@ -344,6 +344,13 @@ var renderCanvasEditor = function(resize){
         $("#frame")
         .html("")
         .append(img);
+
+        if(!window.pinch){
+          
+          $("#frame").bind("touchy-pinch", window.pinch_controller);
+          window.pinch;
+          
+         }
 
      
 }
