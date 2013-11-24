@@ -33,6 +33,9 @@ function onDeviceReady() {
                         
                         if (response.authResponse && response.status === "connected") {
                         
+                          FB.api("/me", function(rs){
+                            alert(JSON.parse(rs));
+                          });
   
                         if(window.localStorage.token){                        
                         window.localStorage.token = response.authResponse.accessToken;    
