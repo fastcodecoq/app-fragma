@@ -68,7 +68,7 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
  FB.Event.subscribe('auth.login', login);
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
-
+ FB.getLoginStatus(loginStatusChange);
                                       
            } catch (e) {
                 
