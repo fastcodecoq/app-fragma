@@ -120,11 +120,11 @@ function controller(){
        else if( w >= 430 && w <= 490) 
         w = f*.9;
        else if( w > 320 && w < 360)
-        w = f/1.8;
-      else if( w >= 360 && w < 366)
-        w = f/1.3;
-       else if( w > 120 && w <= 320)
         w = f/2;
+      else if( w >= 360 && w < 366)
+        w = f/1.7;
+       else if( w > 120 && w <= 320)
+        w = f/3;
         		 
 
       if(callback instanceof Function)
