@@ -80,7 +80,7 @@ window.route = function(where, callback){
 
            window.con.ini_render();
            window.set_frame_controller(null, true);
-           $("#frame").bind("touchy-pinch", pinch_controller);
+           $("#frame").bind("touchy-pinch", window.pinch_controller);
 
 
            
