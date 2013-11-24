@@ -2,7 +2,6 @@ $.fn.vc = function(){ $(this).trigger("viewChanged"); }
 
 window.route = function(where, callback){
    
-	$("#frame").unbind("touchyPinch");
 		
 
 	   switch(where){
@@ -82,7 +81,7 @@ window.route = function(where, callback){
            window.con.ini_render();
            window.set_frame_controller(null, true);
 
-           $("#frame").bind("touchyPinch", window.pinch_controller);
+           
 
 	      break;
 
