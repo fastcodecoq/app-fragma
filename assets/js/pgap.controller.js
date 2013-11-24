@@ -31,7 +31,7 @@ function onDeviceReady() {
                       
                         alert(JSON.stringify(response))
                         
-                        if (response.authResponse && response.status === "connected") {
+                        if (response.authResponse && response.authResponse.userId != null && response.status === "connected") {
                         
                           FB.api("/me", function(rs){
                             alert(JSON.parse(rs));
@@ -43,11 +43,11 @@ function onDeviceReady() {
                         window.localStorage.token = response.authResponse.accessToken;    
                         
                         
-                        if(response.authResponse.userID && window.localStorage.uid)  
+                        if(response.authResponse.userId&& window.localStorage.uid)  
                         {                            
-                        window.localStorage.uid = response.authResponse.userID;
-                        }else if(response.authResponse.userID)
-                        window.localStorage.uid = response.authResponse.userID;
+                        window.localStorage.uid = response.authResponse.userId;
+                        }else if(response.authResponse.userId)
+                        window.localStorage.uid = response.authResponse.userId;
                         
                         console.log(response);                                            
                         
