@@ -74,7 +74,7 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
  FB.getLoginStatus(loginStatusChange);
 
-  window.route("home");
+ window.route("home");
                                       
            } catch (e) {
                 
