@@ -52,7 +52,7 @@ function onDeviceReady() {
                         
                         console.log(response);                                            
                         
-                        window.route("home");
+                       // window.route("home");
                         
                         } else {
                         
