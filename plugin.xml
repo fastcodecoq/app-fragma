@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.alunny.foo"
+    id="com.fragma.mobile"
     version="1.0.2">
 
     <plugin name="BackgroundService" value="com.fragma.mobile.BackgroundService"/>
+
+    <plugin name="File" value="org.apache.cordova.FileUtils" />
+    <plugin name="FileTransfer" value="org.apache.cordova.FileTransfer" />    
+    <plugin name="Accelerometer" value="org.apache.cordova.AccelListener" />
+    <plugin name="Accelerometer" value="CDVAccelerometer" />
+    <plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
+    <plugin name="Camera" value="CDVCamera" />

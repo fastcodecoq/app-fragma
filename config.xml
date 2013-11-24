@@ -25,6 +25,8 @@
     <access origin="*.google.com"/>
     <access origin="*.googleapis.com"/>
 
+    <preference name="DisallowOverscroll" value="true" />
+
     <preference name="target-device" value="universal" />
     <preference name="show-splash-screen-spinner" value="false" />
     <preference name="android-minSdkVersion" value="14" />
