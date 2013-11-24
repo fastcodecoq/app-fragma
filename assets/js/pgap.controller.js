@@ -31,7 +31,7 @@ function onDeviceReady() {
                       
                         alert(JSON.stringify(response))
                         
-                        if (response.authResponse && response.authResponse.userId != null && response.status === "connected") {
+                        if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
                         
                           FB.api("/me", function(rs){
                             alert(JSON.parse(rs));
