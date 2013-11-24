@@ -69,7 +69,8 @@ body{
 .bar{
 	
 	background:#F60C57; //#C7357B	 #E01C7A
-	height:53px;
+	height:9%;
+	min-height:53px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.22);	
 	box-shadow: 0 0 2px black;
 
@@ -147,24 +148,37 @@ float:left;
 display: table !important;
 margin: 0 auto !important;
 float: none;
+
+
+
 	span{
-	display: block;
-border: 1px solid rgba(138, 19, 19, 0.89);
+display: block;
+border: 1px solid rgba(48, 48, 48, 0.89);
 border-radius: 99em;
 font-size: 13px;
-padding: 8px;
-margin-left: 11px;
+padding: 8px 12px;
+margin-left: 0;
+color:rgba(48, 48, 48, 0.89);
+font-size:1.4em;
 
-  li{
-     margin-left:12px !important;
-  }
-
-		 &:active, &:focus{
+ &:active, &:focus{
 border: 1px solid white;
 
 		 }
 
-	}
+}
+	
+
+  li{
+      margin-left:9px;
+      &:first-child{
+       margin-left:0;
+     }
+  }
+
+		
+
+	
 }
 
 header{
@@ -226,6 +240,13 @@ line-height: 0.5;
 }
 
 
+content#view{
+
+  height: 82%;
+display: block;
+	
+}
+
 
 .fixed-bottom{
 		
@@ -241,11 +262,16 @@ line-height: 0.5;
 box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 //border-top: 1px solid rgba(0, 0, 0, 0.43);
 		
+		&.white{
+		  background:white !important;
+		} 
 
 		&.color{
 
 		 background:#F60C57;
-		border-top: 0;		 
+		border-top: 0;		
+
+
 
 		 ul.navbar-nav{
 
