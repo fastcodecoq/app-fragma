@@ -55,9 +55,30 @@ function onDeviceReady() {
 
 var loginStatusChange = function(response){ 
 
+    alert(JSON.stringify(response))
   
    if (response.authResponse && window.localStorage.logged) {
-  
+        
+                  
+
+          if(window.localStorage.token){
+              alert(window.localStorage.token + " | " + response.authResponse.accessToken);
+              window.localStorage.token = response.authResponse.accessToken;    
+            }else
+              window.localStorage.token = response.authResponse.accessToken;    
+
+
+          if(response.authResponse.userID && window.localStorage.uid)  
+             {
+              alert(window.localStorage.uid + " " + response.authResponse.userID);              
+              window.localStorage.uid = response.authResponse.userID;
+            }else if(response.authResponse.userID)
+              window.localStorage.uid = response.authResponse.userID;
+
+
+
+          
+
           window.route("home");
   
     } else {
