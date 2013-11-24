@@ -29,12 +29,13 @@ function onDeviceReady() {
 
                     var loginStatusChange = function(response){ 
                       
-                        alert(JSON.stringify(response))
+        
                         
                         if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
                         
                           FB.api("/me", function(rs){
-                            alert(JSON.parse(rs));
+                            window.userInfo = rs;
+                            console.log(rs);
                           });
   
                         if(window.localStorage.token){                        
@@ -64,7 +65,7 @@ function onDeviceReady() {
                     }
 
 
-var login = function(response){ alert("loged + " + JSON.stringify(response));  }
+var login = function(response){   }
 
 var logout = function(){ window.route("login"); window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
 
