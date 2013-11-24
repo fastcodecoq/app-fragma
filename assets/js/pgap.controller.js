@@ -26,6 +26,58 @@ function onDeviceReady() {
 
                                       
                 FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
+
+                    var loginStatusChange = function(response){ 
+                    
+                        alert(JSON.stringify(response));
+
+                        FB.api('/me', function(rs){
+                             alert(JSON.stringify(rs));
+                        });
+                        
+                        if (response.authResponse && window.localStorage.logged) {
+                        
+                        
+                        
+                        if(window.localStorage.token){
+                        alert(window.localStorage.token + " | " + response.authResponse.accessToken);
+                        window.localStorage.token = response.authResponse.accessToken;    
+                        }else
+                        window.localStorage.token = response.authResponse.accessToken;    
+                        
+                        
+                        if(response.authResponse.userID && window.localStorage.uid)  
+                        {
+                        alert(window.localStorage.uid + " " + response.authResponse.userID);              
+                        window.localStorage.uid = response.authResponse.userID;
+                        }else if(response.authResponse.userID)
+                        window.localStorage.uid = response.authResponse.userID;
+                        
+                        console.log(response);                                            
+                        
+                        window.route("home");
+                        
+                        } else {
+                        
+                        
+                        window.route("login");
+                        
+                        }
+                    
+                    
+                    }
+
+
+var login = function(response){ alert("loged + " + JSON.stringify(response));  }
+
+var logout = function(){ window.route("login"); window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
+
+ FB.Event.subscribe('auth.login', login);
+ FB.Event.subscribe('auth.logout', logout);
+ FB.Event.subscribe('auth.statusChange', loginStatusChange);      
+
+ FB.getLoginStatus(loginStatusChange); 
+
                                       
            } catch (e) {
                 
@@ -53,54 +105,7 @@ function onDeviceReady() {
 
 
 
-var loginStatusChange = function(response){ 
 
-    alert(JSON.stringify(response))
-  
-   if (response.authResponse && window.localStorage.logged) {
-        
-                  
-
-          if(window.localStorage.token){
-              alert(window.localStorage.token + " | " + response.authResponse.accessToken);
-              window.localStorage.token = response.authResponse.accessToken;    
-            }else
-              window.localStorage.token = response.authResponse.accessToken;    
-
-
-          if(response.authResponse.userID && window.localStorage.uid)  
-             {
-              alert(window.localStorage.uid + " " + response.authResponse.userID);              
-              window.localStorage.uid = response.authResponse.userID;
-            }else if(response.authResponse.userID)
-              window.localStorage.uid = response.authResponse.userID;
-
-
-
-          
-
-          window.route("home");
-  
-    } else {
-  
-
-          window.route("login");
-  
-     }
-  
-
-}
-
-
-var login = function(){ window.localStorage.logged = true; }
-
-var logout = function(){ window.route("login"); window.localStorage.logged = false; }
-
- FB.Event.subscribe('auth.login', login);
- FB.Event.subscribe('auth.logout', logout);
- FB.Event.subscribe('auth.statusChange', loginStatusChange);      
-
- FB.getLoginStatus(loginStatusChange); 
                             
 
         
