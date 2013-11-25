@@ -115,7 +115,7 @@ function controller(){
       else if( w >= 360 && w < 366)
         w = f/1.7;
        else if( w > 120 && w <= 320)
-        w = f/3;
+        w = f/5.5;
         		 
 
       if(callback instanceof Function)
@@ -354,8 +354,7 @@ var renderCanvasEditor = function(resize){
         if(window.markup != src || resize){
 
           $("#canvas-image").css({
-                                   width: width - ( offset.tops * 2) 
-                                 , height : height - ( offset.sides * 2) 
+                                   width: width / 1.5
                                  , paddingTop : offset.tops  + "px" 
                                });            
 
