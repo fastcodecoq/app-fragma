@@ -31,13 +31,9 @@ function onDeviceReady() {
                       
         
                         
-                        if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
+            if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
                         
-                          FB.api("/me", function(rs){
-                            window.userInfo = rs;
-                            console.log(rs);
-                          });
-  
+        
                         if(window.localStorage.token){                        
                         window.localStorage.token = response.authResponse.accessToken;    
                         }else
@@ -74,7 +70,6 @@ var logout = function(){ window.route("login"); window.localStorage.removeItem("
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
  FB.getLoginStatus(loginStatusChange);
 
- window.route("home");
                                       
            } catch (e) {
                 

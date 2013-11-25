@@ -435,25 +435,23 @@ window.con = new controller();
 
 
 
-var flag = false;
 $.fn.tapOrClik = function(action){
 
-    var touchable = (Hammer.HAS_TOUCHEVENTS) ? "touchable" : "nope";
-    
-    alert(touchable)
+  var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
   if(touchable === "touchable")
-    $(this).hammer().live("tap", function(ev){        
+    $(this).hammer().live("tap", function(ev){ 
+    alert("tap");       
      action($(this));          
     });
   else
-    $(this).hammer().live("click", function(ev){        
+    $(this).hammer().live("click", function(ev){ 
+    alert("click");       
      action($(this));          
     });
 
 
 
 
-    return false;
 
   }  
