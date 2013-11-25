@@ -439,16 +439,20 @@ var flag = false;
 $.fn.tapOrClik = function(action){
 
     var touchable = (window.touchstart) ? true : false;
+    
+    try{
 
-  if(touchable)
-    $(this).hammer().live("tap", function(){      
-      alert("tap");
+    $(this).hammer().live("tap", function(ev){    
+    alert("hello")  
      action($(this));          
     });
-  else
-     $(this).hammer().live("click", function(){
-     action($(this));          
-    });
+
+     }
+     catch(e){
+        console.log(e);
+     }
+
+
 
     return false;
 
