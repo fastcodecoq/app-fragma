@@ -439,6 +439,8 @@ $.fn.tapOrClik = function(action){
 
   var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
+  alert(touchable)
+
   if(touchable === "touchable")
     $(this).hammer().live("tap", function(ev){ 
     alert("tap");       
