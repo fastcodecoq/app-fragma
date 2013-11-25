@@ -438,25 +438,18 @@ window.con = new controller();
 var flag = false;
 $.fn.tapOrClik = function(action){
 
-  var clickOrTap = ('ontouchstart' in window ) ? "touchstart" : "click";
+    var touchable = (window.touchstart) ? true : false;
 
-  $(this).live(clickOrTap, function(e){
+  if(touchable)
+    $(this).hammer().live("tap", function(){      
+      alert("tap");
+     action($(this));          
+    });
+  else
+     $(this).hammer().live("click", function(){
+     action($(this));          
+    });
 
-    e.stopPropagation();
-    e.preventDefault();
-  
-  if (!flag) {
-    flag = true;
-  
-    setTimeout(function(){ flag = false; }, 100);
+    return false;
 
-     $(this).focus();
-     action($(this));
-
-  }
-
-  return false
-
-});
-
-}
+  }  

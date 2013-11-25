@@ -167,7 +167,7 @@ float: none;
 
 
 	span{
-display: block;
+display:block;
 border: 1px solid rgba(48, 48, 48, 0.89);
 border-radius: 99em;
 font-size: 13px;
@@ -175,9 +175,11 @@ padding: 8px 13px;
 margin-left: 0;
 color:rgba(48, 48, 48, 0.89);
 font-size:1.5em;
+cursor:default;
+-webkit-selection:none;
 
- &:active, &:focus{
-border: 1px solid @fushia;
+ &:active, &:focus, &.taped{
+border: 2px solid @fushia;
 
 		 }
 
