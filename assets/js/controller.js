@@ -71,18 +71,9 @@ function controller(){
 
        var slider = new $t.slider;
 
-      $(".events li").swipe({ 
-                     swipeRight : slider.toLeft , 
-                     swipeLeft: slider.toRight , 
-                     swipeUp : function(e){ e.preventDefault(); },
-                     swipeDown : function(e){ e.preventDefault(); }
-                      });      
-
-
-          $(".fixed-bottom").swipe({  
-                     swipeUp : function(e){ e.preventDefault(); $(this).addClass("color"); },
-                     swipeDown : function(e){ e.preventDefault(); $(this).removeClass("color"); }
-                      });
+      $(".events li").hammer().live("swiperight",slider.toLeft);
+      $(".events li").hammer().live("swipeleft",slider.toRight);  
+      $(".fixed-bottom").hammer().live("touch", function(e){e.preventDefault()});
       
       
 
@@ -200,11 +191,11 @@ function controller(){
 
  }
 
- window.pinch_controller = function (e, $target, data) {
+ window.pinch_controller = function (ev) {
 
-                    var scale = data.scale;
+                    var scale = ev.gesture.scale;
                     $("#canvas-image").css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
-                    alert("hola")
+                    console.log("scale to ", scale);
 
                 }
                 
@@ -439,21 +430,9 @@ $.fn.tapOrClik = function(action){
 
   var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
-  alert(touchable)
-
-  if(touchable === "touchable")
-    $(this).hammer().live("tap", function(ev){ 
-    alert("tap");       
+    $(this).hammer().live("tap", function(ev){       
      action($(this));          
     });
-  else
-    $(this).hammer().live("click", function(ev){ 
-    alert("click");       
-     action($(this));          
-    });
-
-
-
-
+  
 
   }  
