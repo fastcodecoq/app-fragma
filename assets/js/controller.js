@@ -192,7 +192,6 @@ function controller(){
  }
 
  window.pinch_controller = function (ev) {
-
         
         console.log(ev);
 
