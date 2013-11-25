@@ -2,7 +2,7 @@ $.fn.vc = function(){ $(this).trigger("viewChanged"); }
 
 window.route = function(where, callback){
    
-          $(".canvas-editor").off("pinch");           	
+          $(".canvas-editor").off("touch drag transform");           	
 		
 
 	   switch(where){
@@ -82,7 +82,7 @@ window.route = function(where, callback){
            window.con.ini_render();
            window.set_frame_controller(null, true);
 
-          $(".canvas-editor").hammer().on("pinch", window.pinch_controller);           
+          $(".canvas-editor").hammer().on("touch drag transform", window.pinch_controller);           
 
 	      break;
 

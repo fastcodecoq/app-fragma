@@ -193,9 +193,43 @@ function controller(){
 
  window.pinch_controller = function (ev) {
 
-                    var scale = ev.gesture.scale;
-                    $("#canvas-image").css({'webkitTransform':'scale(' + scale + ',' + scale + ')'});
-                    console.log("scale to ", scale);
+        
+        console.log(ev);
+
+        var rect = document.getElementById("canvas-image");
+        var posX=0, posY=0,
+        scale=1, last_scale,
+        rotation= 1, last_rotation;
+
+            switch(ev.type) {
+
+            case 'touch':
+                last_scale = scale;
+                last_rotation = rotation;
+                break;
+
+            case 'drag':
+                posX = ev.gesture.deltaX;
+                posY = ev.gesture.deltaY;
+                break;
+
+            case 'transform':
+                rotation = last_rotation + ev.gesture.rotation;
+                scale = Math.max(1, Math.min(last_scale * ev.gesture.scale, 10));
+                break;
+        }
+
+        // transform!
+        var transform =
+                "translate3d("+posX+"px,"+posY+"px, 0) " +
+                "scale3d("+scale+","+scale+", 0) " +
+                "rotate("+rotation+"deg) ";
+
+        rect.style.transform = transform;
+        rect.style.oTransform = transform;
+        rect.style.msTransform = transform;
+        rect.style.mozTransform = transform;
+        rect.style.webkitTransform = transform;
 
                 }
                 
@@ -430,8 +464,9 @@ $.fn.tapOrClik = function(action){
 
   var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
-    $(this).hammer().live("tap", function(ev){       
-     action($(this));          
+    $(this).hammer().live("touch", function(ev){       
+     action($(this));   
+     $(this).toggleClass("touched");       
     });
   
 
