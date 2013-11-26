@@ -30,13 +30,13 @@ function onDeviceReady() {
     var loginStatusChange = function(response){                     
            
                         
-            if (response.authResponse /*&& response.authResponse.userId != "null"  && response.status === "connected"*/) {
+            if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
                         
                  FB.api("/me", function(response){
-                      console.log("FACEBOOK API response", response);
+                      console.log(response);
                   });
 
-                  console.log("FACEBOOK AUTH RS", response);
+                  console.log(response);
 
                         if(response.authResponse.accessToken)                       
                            window.localStorage.token = response.authResponse.accessToken;                            
