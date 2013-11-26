@@ -256,7 +256,7 @@ var options_controller = function(e, _this){
 
        e.preventDefault();
        e.stopPropagation();
-       
+
 
 
        switch(cmd){
@@ -337,7 +337,8 @@ var renderCanvasEditor = function(resize){
 
           $("#canvas-image").css({
                                    width: width / 1.5
-                                 , paddingTop : offset.tops  + "px" 
+                                 , paddingTop : offset.tops  + "px"
+                                 , zIndex: 0 
                                });            
 
            }            
