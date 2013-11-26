@@ -90,7 +90,7 @@ window.route = function(where, callback){
           var startX = 0;
           var startY = 0;
   
-        $("#canvass").swipe({
+        $("#frame").swipe({
             swipe : function(event, direction, distance, duration, fingerCount) {
                                                          console.log("You swiped " + direction , event);
                                                 },
