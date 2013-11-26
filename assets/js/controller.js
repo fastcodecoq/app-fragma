@@ -251,10 +251,13 @@ $t.ini_listeners = function(){
 
   
    
-        
-         window.route("home");
+        if(screen.width >= 1100){
+
+          window.route("home");
          window.pc = true;
-   
+    
+        }
+         
 
 
 }
@@ -283,7 +286,7 @@ window.options_controller = function(e){
 
        var cmd = $(this).cmd();
        var _this = $(this);
-       
+
        e.preventDefault();
        e.stopPropagation();
 
@@ -292,7 +295,7 @@ window.options_controller = function(e){
 
           case "cam":
 
-             camera_controller(_this);
+             camera_controller(_this);  
 
           break;
 

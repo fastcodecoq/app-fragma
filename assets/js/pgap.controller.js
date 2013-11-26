@@ -31,7 +31,7 @@ function onDeviceReady() {
                       
         
                         
-            if (response.authResponse && response.authResponse.userId != "null"  && response.status === "connected") {
+            if (response.authResponse /*&& response.authResponse.userId != "null"  && response.status === "connected"*/) {
                         
         
                         if(window.localStorage.token){                        
