@@ -108,6 +108,8 @@ window.route = function(where, callback){
 						 deltaX = (event.x - startX) + 5;
 						 deltaY = (event.y - startY) + 5;
 
+						 console.log(event);
+
 						 $("#canvas-image").css({ 
 						 	 "-webkit-transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
 						 	,"transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
@@ -124,7 +126,7 @@ window.route = function(where, callback){
 						 	   									"-webkit-transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
 									                         , "transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
 									                     });
-                                                    
+
 
                                                 }                                               
                 });

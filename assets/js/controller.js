@@ -204,46 +204,6 @@ function controller(){
 
 
  }
-
- window.pinch_controller = function (ev) {
-        
-        console.log(ev);
-
-        var rect = document.getElementById("canvas-image");
-        var posX=0, posY=0,
-        scale=1, last_scale,
-        rotation= 1, last_rotation;
-
-            switch(ev.type) {
-
-            case 'touch':
-                last_scale = scale;
-                last_rotation = rotation;
-                break;
-
-            case 'drag':
-                posX = ev.gesture.deltaX;
-                posY = ev.gesture.deltaY;
-                break;
-
-            case 'transform':
-                rotation = last_rotation + ev.gesture.rotation;
-                scale = Math.max(1, Math.min(last_scale * ev.gesture.scale, 10));
-                break;
-        }
-
-        // transform!
-        var transform =
-                "translate3d("+posX+"px,"+posY+"px, 0) " +
-                "scale3d("+scale+","+scale+", 0) ";                
-
-        rect.style.transform = transform;
-        rect.style.oTransform = transform;
-        rect.style.msTransform = transform;
-        rect.style.mozTransform = transform;
-        rect.style.webkitTransform = transform;
-
-                }
                 
 
 
@@ -253,10 +213,8 @@ $t.ini_listeners = function(){
 
     $(document).on("viewChanged", viewChanged);
 
-    var touchable = ('ontouchstart' in document.documentElement) ? "ontouchstart" : "click";
 
-
-    $("[data-option]").off(touchable).live(touchable, options_controller);
+    $("[data-option]").tapOrClik(options_controller);
      
    
         if(screen.width >= 1100 ){
@@ -291,13 +249,14 @@ var prevents = function(e){
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
-var options_controller = function(e){
+var options_controller = function(e, _this){
 
-       var cmd = $(this).cmd();
-       var _this = $(this);
+       var cmd =  $(this).cmd() || _this.cmd();
+       var _this = $(this) || _this;
 
        e.preventDefault();
        e.stopPropagation();
+       
 
 
        switch(cmd){
@@ -481,14 +440,28 @@ window.con = new controller();
 
 
 
+var flag = false;
 $.fn.tapOrClik = function(action){
 
+  var clickOrTap = ('ontouchstart' in window ) ? "touchstart" : "click";
 
-    $(this).live("touch", function(e){       
+  $(this).live(clickOrTap, function(e){
 
-     $(this).toggleClass("touched");       
-
-    });
+    e.stopPropagation();
+    e.preventDefault();
   
+  if (!flag) {
+    flag = true;
+  
+    setTimeout(function(){ flag = false; }, 100);
 
-  }  
+     $(this).focus();
+     action(e, $(this));
+
+  }
+
+  return false
+
+});
+
+}
