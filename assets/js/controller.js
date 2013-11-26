@@ -341,8 +341,8 @@ var renderCanvasEditor = function(resize){
                                    width: width / 1.5
                                  , paddingTop : offset.tops  + "px"
                                  , zIndex: 0
-                                 , position : relative
-                                 , display : block                                
+                                 , position : "relative"
+                                 , display : "block"                                
                                });            
 
            }            
