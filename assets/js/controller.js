@@ -15,9 +15,8 @@ function controller(){
 
        $t.slider.prototype.toRight = function(e){
 
-            e.preventDefault();
-            e.stopPropagation();
-     
+            e.gesture.preventDefault();            
+     e.gesture.stopPropagation();
             
             var li = $(this) ;     
    
@@ -30,8 +29,8 @@ function controller(){
 
        $t.slider.prototype.toLeft = function(e){
       
-            e.preventDefault();
-            e.stopPropagation();
+            e.gesture.preventDefault();
+            e.gesture.stopPropagation();
          
             var li = $(this);
             
@@ -74,7 +73,9 @@ function controller(){
 
       $(".events li").hammer().live("swiperight", slider.toLeft);
       $(".events li").hammer().live("swipeleft", slider.toRight);  
-      $(".fixed-bottom").hammer().live("touch", function(e){e.preventDefault()});
+      $("body").hammer().live("swipeup", function(e){ e.gesture.preventDefault(); })
+      .live("swipedown", function(e){ e.gesture.preventDefault(); e.gesture.stopPropagation(); });
+
       
       
 
