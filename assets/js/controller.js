@@ -252,13 +252,12 @@ function controller(){
 $t.ini_listeners = function(){
 
     $(document).on("viewChanged", viewChanged);
-    $("[data-option]").swipe({
-        tap : options_controller,
-        fingers : 1,
-        threshold:50
-    });
 
-      
+    var touchable = ('ontouchstart' in document.documentElement) ? "ontouchstart" : "click";
+
+
+    $("[data-option]").off(touchable).live(touchable, options_controller);
+     
    
         if(screen.width >= 1100 ){
 
@@ -266,6 +265,7 @@ $t.ini_listeners = function(){
          window.pc = true;
     
         }
+     
          
 
 
@@ -483,10 +483,11 @@ window.con = new controller();
 
 $.fn.tapOrClik = function(action){
 
-  var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
-    $(this).hammer().live("touch", function(ev){       
+    $(this).live("touch", function(e){       
+
      $(this).toggleClass("touched");       
+
     });
   
 

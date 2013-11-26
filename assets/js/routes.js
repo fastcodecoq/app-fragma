@@ -87,6 +87,48 @@ window.route = function(where, callback){
            window.con.ini_render();
            window.set_frame_controller(null, true);
 
+          var startX = 0;
+          var startY = 0;
+  
+        $("#frame").swipe({
+            swipe : function(event, direction, distance, duration, fingerCount) {
+                                                         console.log("You swiped " + direction , event);
+                                                },
+			swipeStatus : function(event, phase, direction){
+
+
+					if(phase === "start")
+						{
+							startX = event.x;
+							startY = event.y;
+						}
+
+					if(phase === "move"){
+						 
+						 deltaX = (event.x - startX) + 5;
+						 deltaY = (event.y - startY) + 5;
+
+						 $("#canvas-image").css({ 
+						 	 "-webkit-transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
+						 	,"transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
+						 });
+
+						}
+
+
+			},
+			pinchStatus:function(event, phase, direction, distance , duration , fingerCount, pinchZoom) {
+                                                       
+													if(fingers === 2)					
+                                                        $("#canvas-image").css({ 
+						 	   									"-webkit-transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
+									                         , "transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
+									                     });
+                                                    
+
+                                                }                                               
+                });
+
  
 
 	      break;
