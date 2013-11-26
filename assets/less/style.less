@@ -48,7 +48,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141414', end
   background-repeat: no-repeat !important;
   image-rendering: -webkit-optimize-contrast !important;
   image-rendering: optimizeQuality !important;
+  -ms-touch-action: none;
+            -ms-content-zooming: none;
+-webkit-selection:none;
 
+}
+
+
+.s-right{
+	  -webkit-transform: translate3d(-100%,0,0) ;
+	  transform: translate3d(-100%,0,0) ;
+}
+
+.s-left{
+	-webkit-transform: translate3d(100%,0,0) ;
+	  transform: translate3d(100%,0,0) ;
+}
+
+.s-active{
+	-webkit-transform: translate3d(0,0,0) ;
+	transform: translate3d(0,0,0) ;
+}
+
+.sl{
+	 transition-duration:0.25s;
 }
 
 
@@ -78,7 +101,8 @@ body{
 	
 	background:#F60C57; //#C7357B	 #E01C7A
 	height:10%;
-	min-height:57px;
+	height:62px;
+	min-height:62px;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.22);	
 	box-shadow:0 0 2px black;
 
@@ -131,6 +155,8 @@ box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.21);
 #canvas-image{
 	display:table;
 	margin:0 auto;
+	-webkit-transform:translate3d(0,0,0);
+	transform:translate3d(0,0,0);
 }
 
 .markups{
@@ -278,8 +304,8 @@ display: block;
 		position:fixed  !important;
 		bottom:0 !important;
 		left:0;
-		height:10%;
 		min-height:62px;
+		height:62px;
 		background: black;
 		//.bar;
 		width:100%;
@@ -356,14 +382,16 @@ content{
 		list-style:none;
 		width: auto;
 		padding:0;
-		overflow:hidden;
+		overflow:hidden;  
+		width:100%;
+		position:absolute;
 
 		li{
 
-		  float:left !important;
-		  display:iniline-block;
-		  position:relative;
+		  position:absolute;		    		  	
 		  width:100%;
+		  height:100%;
+		.sl;
 		  overflow:hidden;
 
 
@@ -380,6 +408,8 @@ content{
 				text-shadow: 0 0 1px rgba(0, 0, 0, 0.44);
 
 				}
+
+
 
 
 		}

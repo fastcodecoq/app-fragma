@@ -9,34 +9,35 @@ function controller(){
 
   $t.slider = function(){
 
+      window.slideFirst = 0;
+     
 
-       $t.slider.prototype.toLeft = function(e){
+
+       $t.slider.prototype.toRight = function(e){
 
             e.preventDefault();
+            e.stopPropagation();
+     
             
-            var li = $(this);
-            var left = $(this).width();
-            var uLeft = (!li.parents("ul:first").css("marginLeft")) ? 0 : parseInt(li.parents("ul:first").css("margin-left"));
-                 left = uLeft + left; 
-
-            if(parseInt(li.attr("id")) != 0)
-            li.parents("ul:first").css({ marginLeft : left + "px"});            
+            var li = $(this) ;     
+   
+          if(li.next().length > 0)
+            li.removeClass("s-active s-right s-left").addClass("s-right").next().addClass("s-active");
 
 
        }
 
 
-       $t.slider.prototype.toRight = function(e){
+       $t.slider.prototype.toLeft = function(e){
+      
+            e.preventDefault();
+            e.stopPropagation();
+         
+            var li = $(this);
+            
 
-             e.preventDefault();
-             
-             var li = $(this);          
-             var left = $(this).width();
-             var uLeft = (!li.parents("ul:first").css("marginLeft")) ? 0 : parseInt(li.parents("ul:first").css("margin-left"));
-                 left = uLeft - left; 
-           
-            if(parseInt(li.attr("id")) != (li.parents("ul:first").find("li").length - 1 ))
-            li.parents("ul:first").css({ marginLeft : left + "px"});            
+           if(li.prev().length > 0)  
+            li.removeClass("s-active s-right s-left").addClass("s-left").prev().addClass("s-active");            
 
        }
 
@@ -50,18 +51,18 @@ function controller(){
 
   	      h = h - ($(".fixed-bottom").height() + $("header").height());  
 
-          $(".events").css({"-webkit-transition" : "all .5s", "transition" : "all .5s"})	       
+          $(".events").css({
+                              "-webkit-transition" : "all .25s"
+                              , "transition" : "all .25s"
+                              , height : h
+                              , position : "relative"
+                          });	  
 
-  	      $(".events li").each( function(){
+          $(".events li").not(":first").addClass("s-left");                     
+          $(".events").find("li:first").addClass("s-active");
+          
+          window.slideFirst = 0;
 
-  	      		  $(this).css({ height : h + "px", overflow : "hidden"});
-                $(this).attr("id",i);
-
-                i++;
-
-  	      });
-
-          $(".events").css({marginLeft:"0"})
 
   }
  
@@ -71,8 +72,8 @@ function controller(){
 
        var slider = new $t.slider;
 
-      $(".events li").hammer().live("swiperight",slider.toLeft);
-      $(".events li").hammer().live("swipeleft",slider.toRight);  
+      $(".events li").hammer().live("swiperight", slider.toLeft);
+      $(".events li").hammer().live("swipeleft", slider.toRight);  
       $(".fixed-bottom").hammer().live("touch", function(e){e.preventDefault()});
       
       
@@ -126,6 +127,14 @@ function controller(){
   		
       $("#menu li").css({marginLeft : w + "em"});
       $("#menu li:first").css({marginLeft : 0});
+      var sh = $("#menu li").height();
+      var fh = $("footer").height();
+      var pad = (fh - sh) / 2;
+
+      $("footer").css("paddingTop",pad);
+
+      console.log(sh, fh, pad);
+
       $("#menu li").show();
 
        }
@@ -243,13 +252,11 @@ $t.ini_listeners = function(){
 
 
   
-     if( screen.width >= 1100 )
-       {
+   
         
          window.route("home");
          window.pc = true;
-       
-       }
+   
 
 
 }
