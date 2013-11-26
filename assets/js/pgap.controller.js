@@ -63,7 +63,7 @@ function onDeviceReady() {
 
 var login = function(response){   }
 
-var logout = function(){ window.route("login"); window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
+var logout = function(){ /*window.route("login");*/ window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
 
  FB.Event.subscribe('auth.login', login);
  FB.Event.subscribe('auth.logout', logout);
