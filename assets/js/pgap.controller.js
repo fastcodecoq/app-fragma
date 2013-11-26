@@ -46,7 +46,7 @@ function onDeviceReady() {
                         }else if(response.authResponse.userId)
                         window.localStorage.uid = response.authResponse.userId;
                         
-                        console.log(response);                                            
+                         console.log(response);                                            
                         
                        window.route("home");
                         
