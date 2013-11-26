@@ -23,7 +23,8 @@ function onDeviceReady() {
 
 
            try {
-
+   
+    /*
                                       
                 FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
 
@@ -68,7 +69,9 @@ var logout = function(){ /*window.route("login");*/ window.localStorage.removeIt
  FB.Event.subscribe('auth.login', loginStatusChange);
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
- FB.getLoginStatus(loginStatusChange);
+ FB.getLoginStatus(loginStatusChange); */
+
+   window.route("home");
 
                                       
            } catch (e) {
