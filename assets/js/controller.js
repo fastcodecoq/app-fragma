@@ -230,8 +230,7 @@ function controller(){
         // transform!
         var transform =
                 "translate3d("+posX+"px,"+posY+"px, 0) " +
-                "scale3d("+scale+","+scale+", 0) " +
-                "rotate("+rotation+"deg) ";
+                "scale3d("+scale+","+scale+", 0) ";                
 
         rect.style.transform = transform;
         rect.style.oTransform = transform;
@@ -247,7 +246,6 @@ function controller(){
 
 $t.ini_listeners = function(){
 
-    $("[data-option]").tapOrClik(options_controller);
     $(document).on("viewChanged", viewChanged);
 
 
@@ -281,9 +279,13 @@ var prevents = function(e){
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
-var options_controller = function(_this){
+window.options_controller = function(e){
 
-       var cmd = _this.cmd();
+       var cmd = $(this).cmd();
+
+       e.preventDefault();
+       e.stopPropagation();
+
 
        switch(cmd){
 
@@ -314,6 +316,7 @@ var options_controller = function(_this){
 
 
           case "fb-connect":
+
 
             fb_login();
 
@@ -470,7 +473,6 @@ $.fn.tapOrClik = function(action){
   var touchable = ('ontouchstart' in document.documentElement) ? "touchable" : "nope";
 
     $(this).hammer().live("touch", function(ev){       
-     action($(this));   
      $(this).toggleClass("touched");       
     });
   
