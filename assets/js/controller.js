@@ -282,7 +282,8 @@ $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 window.options_controller = function(e){
 
        var cmd = $(this).cmd();
-
+       var _this = $(this);
+       
        e.preventDefault();
        e.stopPropagation();
 
