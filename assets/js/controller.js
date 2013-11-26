@@ -351,7 +351,7 @@ var renderCanvasEditor = function(resize){
 
         window.markup = src;  
         
-        $("#frame").css({position:absolute, zIndex: 1})
+        $("#frame").css({position : "absolute", zIndex: 1})
         .html("")
         .append(img);
 
