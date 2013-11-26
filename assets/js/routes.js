@@ -92,7 +92,7 @@ window.route = function(where, callback){
   
         $("#frame").swipe({
             swipe : function(event, direction, distance, duration, fingerCount) {
-                                                         console.log("You swiped " + direction , event);
+                                                         console.log(direction , event);
                                                 },
 			swipeStatus : function(event, phase, direction){
 
@@ -119,6 +119,8 @@ window.route = function(where, callback){
 
 
 			},
+			pinch : function(event, direction){ console.log(direction, event); }
+			,
 			pinchStatus:function(event, phase, direction, distance , duration , fingerCount, pinchZoom) {
                                                        
 													if(fingers === 2)					
