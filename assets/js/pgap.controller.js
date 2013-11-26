@@ -27,28 +27,27 @@ function onDeviceReady() {
                                       
                 FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
 
-                    var loginStatusChange = function(response){ 
-                      
-        
+    var loginStatusChange = function(response){                     
+           
                         
             if (response.authResponse /*&& response.authResponse.userId != "null"  && response.status === "connected"*/) {
                         
-        
-                        if(window.localStorage.token){                        
-                        window.localStorage.token = response.authResponse.accessToken;    
-                        }else
-                        window.localStorage.token = response.authResponse.accessToken;    
+                 FB.api("/me", function(response){
+                      console.log("FACEBOOK API response", response);
+                  });
+
+                  console.log("FACEBOOK AUTH RS", response);
+
+                        if(response.authResponse.accessToken)                       
+                           window.localStorage.token = response.authResponse.accessToken;                            
                         
                         
-                        if(response.authResponse.userId && window.localStorage.uid)  
-                        {                            
-                        window.localStorage.uid = response.authResponse.userId;
-                        }else if(response.authResponse.userId)
-                        window.localStorage.uid = response.authResponse.userId;
+                        if(response.authResponse.userId)  
+                           window.localStorage.uid = response.authResponse.userId;
                         
                          console.log(response);                                            
                         
-                       window.route("home");
+                         window.route("home");
                         
                         } else {
                         
@@ -57,11 +56,12 @@ function onDeviceReady() {
                         
                         }
                     
-                    
-                    }
+                                
+
+                  }
 
 
-var login = function(response){ window.route("home");  }
+var login = function(response){ window.route("home");}
 
 var logout = function(){ /*window.route("login");*/ window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
 
