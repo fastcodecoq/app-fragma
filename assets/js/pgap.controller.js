@@ -61,16 +61,15 @@ function onDeviceReady() {
                     }
 
 
-var login = function(response){   }
+var login = function(response){ window.route("home");  }
 
 var logout = function(){ /*window.route("login");*/ window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
 
- FB.Event.subscribe('auth.login', login);
+ FB.Event.subscribe('auth.login', loginStatusChange);
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
  FB.getLoginStatus(loginStatusChange);
 
-  window.route("home");
                                       
            } catch (e) {
                 
