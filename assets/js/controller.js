@@ -220,9 +220,11 @@ $t.ini_listeners = function(){
         if(screen.width >= 1100 ){
 
           window.route("home");
-         window.pc = true;
+       
     
         }
+
+          window.pc = true;
      
          
 
