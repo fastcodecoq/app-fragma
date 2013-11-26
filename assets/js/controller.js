@@ -129,9 +129,9 @@ function controller(){
       $("#menu li:first").css({marginLeft : 0});
       var sh = $("#menu li").height();
       var fh = $("footer").height();
-      var pad = (fh - sh) / 2;
+      var pad = (fh - sh) / 6;
 
-      $("footer").css("paddingTop",pad);
+
 
       console.log(sh, fh, pad);
 

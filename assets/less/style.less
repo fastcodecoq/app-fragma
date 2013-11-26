@@ -31,6 +31,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141414', end
 
 }
 
+.hardware-acceleration{
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+}
+
 *{
 	-ms-touch-action: none;
             -ms-content-zooming: none;
@@ -72,6 +77,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141414', end
 
 .sl{
 	 transition-duration:0.25s;
+	 .hardware-acceleration;
 }
 
 
@@ -306,6 +312,7 @@ display: block;
 		left:0;
 		min-height:62px;
 		height:62px;
+		padding-top:.1%;
 		background: black;
 		//.bar;
 		width:100%;
