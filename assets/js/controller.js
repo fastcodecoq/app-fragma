@@ -338,7 +338,9 @@ var renderCanvasEditor = function(resize){
           $("#canvas-image").css({
                                    width: width / 1.5
                                  , paddingTop : offset.tops  + "px"
-                                 , zIndex: 0 
+                                 , zIndex: 0
+                                 , position : relative
+                                 , display : block                                
                                });            
 
            }            
@@ -347,7 +349,7 @@ var renderCanvasEditor = function(resize){
 
         window.markup = src;  
         
-        $("#frame")
+        $("#frame").css({position:absolute, zIndex: 1})
         .html("")
         .append(img);
 
@@ -454,7 +456,7 @@ $.fn.tapOrClik = function(action){
   if (!flag) {
     flag = true;
   
-    setTimeout(function(){ flag = false; }, 100);
+    setTimeout(function(){ flag = false; }, 50);
 
      $(this).focus();
      action(e, $(this));
