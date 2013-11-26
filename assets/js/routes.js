@@ -2,8 +2,7 @@ $.fn.vc = function(){ $(this).trigger("viewChanged"); }
 
 window.route = function(where, callback){
    
-          $(".canvas-editor").off("touch drag transform");   
-          $("[data-option]").off("touch");
+
 
 		
 
@@ -21,7 +20,7 @@ window.route = function(where, callback){
            var layout = new EJS({url:"views/layout.ejs"}).render(data);
 
            document.getElementById("content-wrapper").innerHTML = layout;
-         $("[data-option]").hammer().on("touch", window.options_controller);
+  
 
 
 
@@ -48,7 +47,7 @@ window.route = function(where, callback){
 
                $(window).on("resize", loginRender);
                loginRender();
-               $("[data-option]").hammer().on("touch", window.options_controller);
+         
 
 
 	      break;
@@ -65,7 +64,7 @@ window.route = function(where, callback){
 	       var layout = new EJS({url:"views/layout.ejs"}).render(data);
 
            document.getElementById("content-wrapper").innerHTML = layout;
-           $("[data-option]").hammer().on("touch", window.options_controller);
+    
 				
 
 	      break;
@@ -88,8 +87,7 @@ window.route = function(where, callback){
            window.con.ini_render();
            window.set_frame_controller(null, true);
 
-          $(".canvas-editor").hammer().on("touch drag transform", window.pinch_controller);        
-          $("[data-option]").hammer().pn("touch", window.options_controller);   
+ 
 
 	      break;
 

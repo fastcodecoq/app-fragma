@@ -15,8 +15,8 @@ function controller(){
 
        $t.slider.prototype.toRight = function(e){
 
-            e.gesture.preventDefault();            
-     e.gesture.stopPropagation();
+            e.preventDefault();            
+     e.stopPropagation();
             
             var li = $(this) ;     
    
@@ -29,8 +29,8 @@ function controller(){
 
        $t.slider.prototype.toLeft = function(e){
       
-            e.gesture.preventDefault();
-            e.gesture.stopPropagation();
+            e.preventDefault();
+            e.stopPropagation();
          
             var li = $(this);
             
@@ -71,10 +71,14 @@ function controller(){
 
        var slider = new $t.slider;
 
-      $(".events li").hammer().live("swiperight", slider.toLeft);
-      $(".events li").hammer().live("swipeleft", slider.toRight);  
-      $("body").hammer().live("swipeup", function(e){ e.gesture.preventDefault(); })
-      .live("swipedown", function(e){ e.gesture.preventDefault(); e.gesture.stopPropagation(); });
+      $(".events li").swipe({
+          swipeLeft : slider.toRight,
+          swipeRight : slider.toLeft,
+          threshold:0,
+          fingers:1
+       });
+
+   
 
       
       
@@ -248,9 +252,13 @@ function controller(){
 $t.ini_listeners = function(){
 
     $(document).on("viewChanged", viewChanged);
+    $("[data-option]").swipe({
+        tap : options_controller,
+        fingers : 1,
+        threshold:50
+    });
 
-
-  
+      
    
         if(screen.width >= 1100 ){
 
@@ -283,7 +291,7 @@ var prevents = function(e){
 
 $.fn.cmd = function(){ return $(this).attr("data-cmd"); }
 
-window.options_controller = function(e){
+var options_controller = function(e){
 
        var cmd = $(this).cmd();
        var _this = $(this);
