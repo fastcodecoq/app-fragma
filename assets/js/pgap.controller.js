@@ -40,7 +40,7 @@ function onDeviceReady() {
                         window.localStorage.token = response.authResponse.accessToken;    
                         
                         
-                        if(response.authResponse.userId&& window.localStorage.uid)  
+                        if(response.authResponse.userId && window.localStorage.uid)  
                         {                            
                         window.localStorage.uid = response.authResponse.userId;
                         }else if(response.authResponse.userId)
