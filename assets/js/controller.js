@@ -1,5 +1,11 @@
 var width_land = undefined;
 var width_portrait = undefined;
+navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+
+                       
 
 function controller(){
 
@@ -213,6 +219,18 @@ $t.ini_listeners = function(){
 
     $(document).on("viewChanged", viewChanged);
 
+        $("#canvas-image").on("drag","#canvas-image",function( ev, dd ){
+                  
+                  alert("hey")
+                   console.log(ev);
+
+             $(this).css({ 
+               "-webkit-transform" : "translate3d(" + dd.offsetX + "px," + dd.offsetY + "px,0)" 
+              ,"transform" : "translate3d(" + dd.offsetX + "px," + dd.offsetY + "px,0)" 
+             });
+         
+          });
+
 
     $("[data-option]").tapOrClik(options_controller);
      
@@ -220,11 +238,11 @@ $t.ini_listeners = function(){
         if(screen.width >= 1100 ){
 
           window.route("home");
-       
+        window.pc = true;
     
         }
 
-          window.pc = true;
+          
      
          
 
@@ -395,12 +413,14 @@ var renderMap = function(){
 
 var camera_controller = function(el){
       
-      if(!window.pc)
+     $("#capture").click();
+
+     /* if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
       else{
         window.pic = "assets/img/evento1.jpg";
         window.route("editor");
-      }
+      } */
 
 }
 

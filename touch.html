@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Touch Motion</title>
+
+<style>
+   	
+   	*{
+   		  margin:0;
+   		  padding: 0;
+   		  font-size: 13px;
+   		  font-family: "Lucida grande", Arial, sans-serif;   		     		 
+   	}
+
+   	h2{
+   		font-size: 2em;
+   		text-align: center;
+   	}
+
+   	body{
+   		 overflow: hidden;
+
+   	}
+	
+   .circle{
+    
+    position:absolute;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    display:none;
+    width: 62px;
+    height: 62px;
+    border-radius: 99em;
+    border:2px solid rgb(212, 89, 89);
+
+
+   }
+
+
+   .motion{
+   	  width: 10px;
+   	  height: 10px;
+   	  transition: all .5s;
+   }
+
+
+   #touchable{
+   	        	     
+ 
+   		 border: 5px solid #444; 
+
+   }
+
+</style>
+
+</head>
+
+<body >
+<span class="circle"></span>
+
+<div id="touchable">
+
+	 <h2 id="writer">Touch me!</h2>
+
+</div>
+
+
+<script type="text/javascript" src="assets/js/lib.js"></script>
+<script type="text/javascript" src="assets/js/swipe.min.js"></script>
+
+<script type="text/javascript">
+
+  var writer = document.getElementById("writer");
+  var offset = screen.height / 2;
+     offset -= 50;
+  writer.style.marginTop = offset + "px";
+  document.getElementById("touchable").style.height = window.innerHeight - 10 + "px";
+
+   function motion_touch(event){ 
+
+   	console.log(event)
+        
+   			$(".circle").css({
+   				top : (event.y - ($(this).height() / event.y)) + "px",   				
+   				left : (event.x - 20) + "px"
+   			}).fadeIn("fast", function(){ $(this).addClass("motion").fadeOut("fast", function(){ $(this).removeClass("motion");
+   		    })
+   		 });   			
+
+    }
+
+
+   function touch(){
+
+   	  $("#touchable").swipe({
+
+   	  	 tap : motion_touch
+
+   	  });
+
+   }
+
+
+
+   $(touch);
+
+</script>
+
+</body>
+
+</html>

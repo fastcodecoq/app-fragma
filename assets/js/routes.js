@@ -87,10 +87,13 @@ window.route = function(where, callback){
            window.con.ini_render();
            window.set_frame_controller(null, true);
 
-          var startX = 0;
-          var startY = 0;
+      
+
+
+      
+
   
-        $("#frame").swipe({
+        $("#canvas-image").swipe({
             swipe : function(event, direction, distance, duration, fingerCount) {
                                                          console.log(direction , event);
                                                 },
@@ -110,7 +113,7 @@ window.route = function(where, callback){
 
 						 console.log(event);
 
-						 $("#canvas-image").css({ 
+						 $(this).css({ 
 						 	 "-webkit-transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
 						 	,"transform" : "translate3d(" + deltaX + "px," + deltaY + "px,0)" 
 						 });
@@ -124,14 +127,14 @@ window.route = function(where, callback){
 			pinchStatus:function(event, phase, direction, distance , duration , fingerCount, pinchZoom) {
                                                        
 													if(fingers === 2)					
-                                                        $("#canvas-image").css({ 
+                                                        $(this).css({ 
 						 	   									"-webkit-transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
 									                         , "transform" : "escale3d(" + pinchZoom + "," + pinchZoom + ")"						 	
 									                     });
 
 
                                                 }                                               
-                });
+                }); 
 
  
 
