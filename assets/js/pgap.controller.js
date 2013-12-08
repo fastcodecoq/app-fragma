@@ -24,7 +24,7 @@ function onDeviceReady() {
 
            try {
    
-    /*
+    
                                       
                 FB.init({ appId: "1437152043163607", nativeInterface: CDV.FB,  status: true, useCachedDialogs: false });         
 
@@ -53,7 +53,7 @@ function onDeviceReady() {
                         } else {
                         
                         
-                        window.route("login");
+                          window.route("login");
                         
                         }
                     
@@ -64,14 +64,12 @@ function onDeviceReady() {
 
 var login = function(response){ window.route("home");}
 
-var logout = function(){ /*window.route("login"); window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
+var logout = function(){ window.route("login"); window.localStorage.removeItem("token"); window.localStorage.removeItem("uid"); }
 
  FB.Event.subscribe('auth.login', loginStatusChange);
  FB.Event.subscribe('auth.logout', logout);
  FB.Event.subscribe('auth.statusChange', loginStatusChange);      
- FB.getLoginStatus(loginStatusChange); */
-
-   window.route("home");
+ FB.getLoginStatus(loginStatusChange); 
 
                                       
            } catch (e) {

@@ -240,16 +240,7 @@ $t.ini_listeners = function(){
           window.route("home");
         window.pc = true;
     
-        }
-
-
-          window.route("home");
-        window.pc = true;
-
-          
-     
-         
-
+    }
 
 }
 
