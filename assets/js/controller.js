@@ -76,12 +76,12 @@ function controller(){
   $t.swipeOn = function(){
 
        var slider = new $t.slider;
+      
+     
 
       $(".events li").swipe({
-          swipeLeft : slider.toRight,
-          swipeRight : slider.toLeft,
-          threshold:0,
-          fingers:1
+          swipe : slider.toRight,
+          swipeRight : slider.toLeft
        });
 
    
@@ -241,6 +241,10 @@ $t.ini_listeners = function(){
         window.pc = true;
     
         }
+
+
+          window.route("home");
+        window.pc = true;
 
           
      
@@ -404,8 +408,7 @@ var renderMap = function(){
     }
 
 
-    if(!require_once("http://maps.google.com/maps/api/js?sensor=false&callback=window.showMap", "body"))
-         window.showMap();
+      window.showMap();
         
         
 
@@ -413,14 +416,14 @@ var renderMap = function(){
 
 var camera_controller = function(el){
       
-     $("#capture").click();
+    // $("#capture").click();
 
-     /* if(!window.pc)
+      if(!window.pc)
       navigator.camera.getPicture( picTaked, null, { quality: 50, destinationType: Camera.DestinationType.FILE_URI } );
       else{
         window.pic = "assets/img/evento1.jpg";
         window.route("editor");
-      } */
+      } 
 
 }
 
