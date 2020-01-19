@@ -13,4 +13,4 @@ _____________
 TEAM
 ====
 
-Gomosoft Team
+Fastcode Team
